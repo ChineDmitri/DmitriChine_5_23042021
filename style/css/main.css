@@ -1,9 +1,15 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: #B5B5B5;
 }
 
-.main-content {
+a {
+  text-decoration: none;
+}
+
+#container {
+  font-family: 'Trirong', serif;
   margin-left: auto;
   margin-right: auto;
   display: -webkit-box;
@@ -13,11 +19,124 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #ccc;
-  width: 50%;
+  width: 750px;
 }
 
-.main-content #articles {
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Finger Paint', cursive;
+  font-weight: 800;
+  color: #1D0D1A;
+  margin: 1vh 0;
+  background-color: #B5B5B5;
+}
+
+header #name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 150px;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
+  border-radius: 20px;
+  background-color: #F3E9F1;
+  color: #271724;
+  margin: 1vh 0;
   font-size: 1.2rem;
+}
+
+header #name h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header a {
+  color: #271724;
+  height: 150px;
+  margin: 1vh 0;
+  position: relative;
+  -ms-flex-preferred-size: 32%;
+      flex-basis: 32%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 20px;
+  background-color: #F3E9F1;
+}
+
+header a i {
+  background: linear-gradient(120deg, #E68A08 15%, #B26E9C 50%, #8F5BFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  right: calc(50% - 4rem);
+  top: calc(50% - 4rem);
+  font-size: 8rem;
+}
+
+header a #counter {
+  font-size: 2rem;
+  position: absolute;
+  top: 25%;
+  right: 40%;
+}
+
+main {
+  font-family: 'Trirong', serif;
+  color: #1D0D1A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #B5B5B5;
+  margin: 1vh 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+main .ligne {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+main .ligne .produits {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  background-color: #F3E9F1;
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+  padding: 2%;
+}
+
+footer {
+  background-color: #F3E9F1;
 }
 /*# sourceMappingURL=main.css.map */

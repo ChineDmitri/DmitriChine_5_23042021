@@ -1,16 +1,102 @@
+@import "_variables.scss";
+
 body {
     padding: 0;
     margin: 0;
+    background-color: $bg_color;
 }
 
-.main-content {
+a {
+    text-decoration: none;
+}
+
+#container {
+    font-family: 'Trirong', serif;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    background-color: #ccc;
-    width: 50%;
-    #articles {
+    width: 750px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Finger Paint', cursive;
+    font-weight: 800;
+    color: $text_color;
+    margin: 1vh 0;
+    background-color: $bg_color;
+    #name {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        flex-basis: 65%;
+        border-radius: 20px;
+        background-color: $objet_color;
+        color: $title_color; 
+        margin: 1vh 0;
         font-size: 1.2rem;
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
     }
+    a {
+        color: $title_color;
+        height: 150px;
+        margin: 1vh 0;
+        position: relative;
+        flex-basis: 32%;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        background-color: $objet_color;
+        i {
+            background: linear-gradient(120deg, $ico_color1 15%, $ico_color2 50%, $ico_color3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            right: calc(50% - 4rem);
+            top: calc(50% - 4rem);
+            font-size: 8rem;
+        }
+        #counter {
+            font-size: 2rem;
+            position: absolute;
+            top: 25%;
+            right: 40%; 
+        }
+    } 
+    
+}
+
+main {
+    font-family: 'Trirong', serif;
+    color: $text_color;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg_color;
+    margin: 1vh 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    .ligne {     
+        display: flex;   
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2%;
+        .produits {
+            display: flex;
+            border-radius: 20px;
+            background-color: $objet_color;  
+            flex-basis: 45%;
+            padding: 2%;
+        }
+    }
+}
+
+footer {
+    background-color: #F3E9F1;
 }
