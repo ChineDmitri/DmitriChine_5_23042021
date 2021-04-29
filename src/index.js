@@ -1,4 +1,5 @@
-
+import {constructorLigne} from './template';
+import {constructorArticle} from './template';
 
 const link = 'http://localhost:3000/api/cameras';
 let cameras = new XMLHttpRequest();
@@ -16,7 +17,27 @@ let promiseCameras = new Promise((resolve, reject) => {
 });
 
 
+promiseCameras.then((value) => {
+    let classMaintContent = document.getElementsByClassName('main-content');
+    let k = -1;
 
+    // if (value.length % 2 !== 0) {
+    //     constructorLigne(classMaintContent[0]);
+    // };
+
+    for (let i = 0; i < value.length; i++) {
+        if (i % 2 === 0) {
+            constructorLigne(classMaintContent[0]);
+            k++;
+        } 
+        let classLigne = document.getElementsByClassName('ligne');
+        constructorArticle(classLigne[k]);
+    }
+});
+
+
+
+/*
 promiseCameras.then((value) => { 
     async () => {
         
@@ -42,4 +63,4 @@ promiseCameras.then((value) => {
 
     };
 });
-
+*/
