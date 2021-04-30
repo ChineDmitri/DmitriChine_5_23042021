@@ -1,5 +1,5 @@
-import {constructorLigne} from './template';
-import {constructorArticle} from './template';
+import {constructorHTMLCode} from './template';
+import {template} from './template';
 
 const link = 'http://localhost:3000/api/cameras';
 let cameras = new XMLHttpRequest();
@@ -26,12 +26,36 @@ promiseCameras.then((value) => {
     // };
 
     for (let i = 0; i < value.length; i++) {
+
         if (i % 2 === 0) {
-            constructorLigne(classMaintContent[0]);
+            // creation une ligne
+            constructorHTMLCode(classMaintContent[0], template.classLigne);
             k++;
         } 
+
         let classLigne = document.getElementsByClassName('ligne');
-        constructorArticle(classLigne[k]);
+        //creation des articles dans la ligne avec deux article (k = indice de ligne)
+        constructorHTMLCode(classLigne[k], template.classArticle);
+
+        let produitName = document.getElementsByClassName("produit-nom");
+        //atribution du nom pour article 
+        produitName[i].innerText = value[i].name;
+
+        let produitPrix = document.getElementsByClassName("produit-prix");
+        //atributipn de la prix pour article
+        produitPrix[i].innerText = (value[i].price + " €");
+
+        // attribution de url de l'image pour article
+        let produitImg = document.getElementsByClassName("imgUrl");
+        produitImg[i].setAttribute("src", value[i].imageUrl);
+
+        // creation url de la produit
+        let url = ('./produit.html?id=' + value[i]._id);
+
+        // attribution de l'url pour article 
+        let produitUrl = document.getElementsByClassName('articleUrl');
+        produitUrl[i].setAttribute("href", url);
+
     }
 });
 

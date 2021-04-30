@@ -141,7 +141,7 @@ main .ligne {
 
 main .ligne a {
   width: 49%;
-  height: 49%;
+  margin-bottom: 2%;
 }
 
 main .ligne .articles {
@@ -165,6 +165,13 @@ main .ligne .articles {
           transition-duration: 400ms;
 }
 
+main .ligne .articles:hover {
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
+          box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
+}
+
 main .ligne .articles .produit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,12 +183,13 @@ main .ligne .articles .produit {
 }
 
 main .ligne .articles .produit-img {
-  border-radius: 15px;
   width: 100%;
   height: 250px;
 }
 
 main .ligne .articles .produit-img img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -236,13 +244,6 @@ main .ligne .articles .produit-stars .good {
 
 main .ligne .articles .produit-stars .noGood {
   color: #B5B5B5;
-}
-
-main .ligne .articles:hover {
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms;
-  -webkit-box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
-          box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
 }
 
 footer {
