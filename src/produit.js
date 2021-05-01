@@ -1,15 +1,21 @@
+import {constructorHTMLCode} from './modules/template';
+import {template} from './modules/template';
+import {panier} from './modules/panier';
 
-const id = '?id=';
+const id = 'produit.html?id=';
 let hrefURL = location.href;
 let idProduitByURL;
 
+// si nous avons dans URL '?id=' alors on cherche numero ID 
+// recuperation de ID par URL (typeof hrefURL = string)
 if (hrefURL.includes(id) == true) {
     idProduitByURL = hrefURL.slice((hrefURL.indexOf(id) + id.length), hrefURL.length);
 }
-// recuperation de ID par URL (typeof hrefURL = string)
-console.log(hrefURL.includes(id));
-console.log(hrefURL.length);
-console.log(idProduitByURL);
+
+// c'est TO DO
+// console.log(hrefURL.includes(id));
+// console.log(hrefURL.length);
+// console.log(idProduitByURL);
 
 
 const link = 'http://localhost:3000/api/cameras';
@@ -28,10 +34,6 @@ function sendRequest(method, url, body = null) {
             let arrayCameras = JSON.parse(cameras.response);
             resolve(arrayCameras)
         }
-
-        cameras.onerror = () => {
-            reject(cameras.response);
-        }
     })
         
 };
@@ -44,23 +46,66 @@ sendRequest('GET', link)
         if (objetJSON) {
             console.log(objetJSON);
 
-            let articles = document.getElementById('articles');
-            let div = document.createElement('div');
-            articles.appendChild(div);
-            div.className = "discription";
+            // creation de title pour option (color, linses...)
+            let option = JSON.stringify(objetJSON).slice(2, JSON.stringify(objetJSON).indexOf('":'));
+            // mettre en majuscule
+            let optionFirstCharUpperCase = option[0].toUpperCase(0) + option.slice(1, option.length);
+            // verification si c'est bon
+            console.log(option);
+            
+            
+            let ligne = document.getElementsByClassName("ligne");
 
-            let discription = document.getElementsByClassName('discription');
-            discription[0].innerHTML = (
-                objetJSON.name + "</br></br>" +
-                objetJSON.description + "</br></br>" +
-                objetJSON.price + "</br></br>" +
-                objetJSON.imageUrl
-            );
+            constructorHTMLCode(ligne[0], template.idArticle);
+
+            // preparation de variables DOM pour travailer avec
+            let produitNom = document.getElementById("produit-nom");
+            let produitPrix = document.getElementById("produit-prix");
+            let produitDescription = document.getElementById("produit-description");
+            let titleOption = document.getElementById("option");
+            let produitForm = document.getElementById("produit-form");
+            let imgUrl = document.getElementById("imgUrl");
+
+            // incertion de donné
+            produitPrix.innerText = (objetJSON.price + " €");
+            produitDescription.innerText = objetJSON.description;
+            produitNom.innerText = objetJSON.name;
+            titleOption.innerText = (optionFirstCharUpperCase + ":");
+            imgUrl.setAttribute("src", objetJSON.imageUrl)
+
+            // console.log(objetJSON.lenses.length);
+
+            // cration lest des option pour article
+            for (let i = 0; i < objetJSON.lenses.length; i++) {
+                constructorHTMLCode(produitForm, template.classeLabelRadio)
+
+                let lebelRadio = document.getElementsByClassName("labelRadio");
+                let inputProduitFormRadio = document.getElementsByClassName("produit-form-radio");
+                
+                constructorHTMLCode(lebelRadio[i], objetJSON.lenses[i]);
+                inputProduitFormRadio[i].setAttribute("name", option);
+                inputProduitFormRadio[i].setAttribute("value", objetJSON.lenses[i]);
+            }
+
+            // n'oublie pas ajouter button ;)
+            constructorHTMLCode(produitForm, template.buttonAjouterAuPanier);
+
+            let ajouterAuPanier = document.getElementById("produit-form-post");
+
+            ajouterAuPanier.addEventListener('click', (event) => {
+                panier.product_id.push(objetJSON._id);
+                localStorage.setItem('panier', JSON.stringify(panier.product_id))
+                console.log(panier);
+            })
 
         } else {
             console.log('piratage');
         }
     })
-    .catch((error) => {
-        console.log('existe pas', error);
-    })
+
+
+
+
+// variable de article 
+
+

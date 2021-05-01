@@ -1,1 +1,290 @@
-/* No CSS *//*# sourceMappingURL=produit.css.map */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #B5B5B5;
+}
+
+a {
+  text-decoration: none;
+  color: #1D0D1A;
+}
+
+a:hover {
+  color: #B26E9C;
+}
+
+#container {
+  font-family: 'Trirong', serif;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 750px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Finger Paint', cursive;
+  font-weight: 800;
+  color: #1D0D1A;
+  margin: 1vh 0 2% 0;
+  background-color: #B5B5B5;
+}
+
+header #name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 150px;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
+  border-radius: 25px;
+  background-color: #F3E9F1;
+  color: #271724;
+  margin: 1vh 0;
+  -webkit-box-shadow: 0 0 5px #1D0D1A;
+          box-shadow: 0 0 5px #1D0D1A;
+}
+
+header #name h1 {
+  font-size: 2rem;
+}
+
+header .panier {
+  color: #271724;
+  height: 150px;
+  margin: 1vh 0;
+  position: relative;
+  -ms-flex-preferred-size: 32%;
+      flex-basis: 32%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 25px;
+  background-color: #F3E9F1;
+  -webkit-box-shadow: 0 0 5px #1D0D1A;
+          box-shadow: 0 0 5px #1D0D1A;
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+header .panier i {
+  background: linear-gradient(120deg, #E68A08 15%, #B26E9C 50%, #8F5BFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  right: calc(50% - 4rem);
+  top: calc(50% - 4rem);
+  font-size: 8rem;
+}
+
+header .panier #counter {
+  font-family: 'Trirong', serif;
+  font-size: 2rem;
+  position: absolute;
+  top: 25%;
+  right: calc(50% - 2rem);
+}
+
+header .panier:hover {
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
+          box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
+}
+
+main {
+  font-family: 'Trirong', serif;
+  color: #1D0D1A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #B5B5B5;
+  margin: 1vh 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+main .ligne {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 2%;
+  background-color: #F3E9F1;
+  padding: 1%;
+  border-radius: 25px;
+}
+
+main .ligne .articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .ligne .articles img {
+  width: 100%;
+  max-height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+main .ligne .articles #produit-general {
+  padding: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .ligne .articles #produit-nom {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+main .ligne .articles #produit-prix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  font-size: 1.2rem;
+}
+
+main .ligne .articles #produit-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
+  margin: 0;
+  padding: 0;
+}
+
+main .ligne .articles #produit-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .ligne .articles #produit-notification {
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+}
+
+main .ligne .articles #produit-notification-goPanier {
+  text-decoration: underline;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+footer {
+  -webkit-box-shadow: 0 0 10px #1D0D1A;
+          box-shadow: 0 0 10px #1D0D1A;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 2%;
+  background-color: #F3E9F1;
+}
+
+footer .mode-de-payment li {
+  padding: 0;
+  color: #8F5BFE;
+  font-size: 3rem;
+}
+
+footer .liens-footer, footer .mode-de-payment {
+  padding: 0;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .liens-footer li, footer .mode-de-payment li {
+  font-weight: 800;
+  margin: 0 1rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer .liens-footer li a, footer .mode-de-payment li a {
+  color: #1D0D1A;
+}
+
+footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
+  color: #B26E9C;
+}
+/*# sourceMappingURL=produit.css.map */

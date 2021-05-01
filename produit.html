@@ -1,26 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script type="text/javascript" src="./js/produit.js"></script>
-    <link rel="stylesheet" href="./style/css/main.css">
+    <!-- Warning: The type attribute is unnecessary for JavaScript resources. -->
+    <script defer src="./produit.bundle.js"></script>
+    <script defer src="./polyfill.bundle.js"></script>
+    <!-- <script defer src="./dist/produit.bundle.js"></script>
+    <script defer src="./dist/polyfill.bundle.js"></script> -->
+    <link rel="stylesheet" href="./style/css/produit.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/f758d5de88.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Trirong:ital,wght@0,200;0,300;0,400;0,700;1,200;1,400&display=swap" rel="stylesheet">
     <title>Produit</title>
 </head>
 <body>
-<header>
+    <div id="container">
+        <header>
+            <div id="name">
+                <h1>
+                    <a href="/">
+                        Orinoco
+                        <br>
+                        Votre shopping online
+                    </a>
+                </h1>
+            </div>
+            <a href="#" class="panier">
+                <aside >
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="counter">
+                    2
+                    </span>
+                </aside>
+            </a>
+        </header>
+        <main class="main-content">
+            <div class="ligne">
+                    <!-- <article class="articles">
+                        <div id="produit-img">
+                            <img src="./images/vcam_1.jpg" alt="">
+                        </div>
+                    
+                        <div id="produit-general">
+                            <h2 id="produit-nom">Zurss S 50S 50S 50S </h2>
+                    
+                            <span id="produit-prix">49900 €</span>
+                            <p id="produit-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia minima quasi explicabo asperiores consequatur, quis tempore iusto officiis ea possimus voluptatibus! Nostrum, eos. Numquam totam ullam perspiciatis nemo, excepturi impedit.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis recusandae assumenda, earum fugit reprehenderit id alias est itaque voluptatibus, unde explicabo. Tenetur mollitia pariatur nihil sint quaerat, voluptate perferendis tempore!
+                                
+                            </p>
+                            <form action="POST" id="produit-form">
+                                <span>Lenses:</span>
+                                <label class="labelRadio">
+                                    <input type="radio" name="lenses" class="produit-form-post" value="35mm 1.4">
+                                    35mm 1.4"
+                                </label>
+                                <label class="labelRadio">
+                                    <input type="radio" name="lenses" class="produit-form-post" value="50mm 1.6">
+                                    50mm 1.6
+                                </label>
+                                <label class="labelRadio">
+                                    <input type="radio" name="lenses" class="produit-form-post" value="50mm 1.6">
+                                    50mm 1.6
+                                </label>
+                                <label class="labelRadio">
+                                    <input type="radio" name="lenses" class="produit-form-post" value="50mm 1.6">
+                                    50mm 1.6
+                                </label>
+                                <input type="button" id="produit-form-post" value="Ajouter au Panier">
+                                <span id="produit-notification">
+                                    Vous avez ajouté Zurss S 50S avec linse 50mm 1.6
+                                </span>
+                                <span id="produit-notification-goPanier">
+                                    <a href="/panier.html">
+                                        Voir le panier
+                                    </a>
+                                </span>
+                            </form>
+                            
 
-</header>
-<main class="main-content">
-    <h1>ARTICLES:</h1>
-    <div id="articles">
-               
+                        </div>
+                    </article> -->
+            </div>
+        </main>
+        <footer>
+            <ul class="liens-footer">
+                <li><a href="mailto:contact@orinoco.fr">Contact</a></li>
+                <li><a href="#">Obtenir de l'aide</a></li>
+            </ul>
+            <ul class="mode-de-payment">
+                <li><i class="fab fa-cc-visa"></i></li>
+                <li><i class="fab fa-cc-mastercard"></i></li>
+                <li><i class="fab fa-cc-paypal"></i></li>
+                <li><i class="fab fa-cc-amex"></i></li>
+            </ul>
+        </footer>
+
     </div>
-
-</main>
-<footer>
-
-</footer>
 </body>
 </html>

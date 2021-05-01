@@ -1,5 +1,5 @@
-import {constructorHTMLCode} from './template';
-import {template} from './template';
+import {constructorHTMLCode} from './modules/template';
+import {template} from './modules/template';
 
 const link = 'http://localhost:3000/api/cameras';
 let cameras = new XMLHttpRequest();
