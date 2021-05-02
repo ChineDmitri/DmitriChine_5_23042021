@@ -1,6 +1,8 @@
 import {constructorHTMLCode} from './modules/template';
 import {template} from './modules/template';
-import {panier} from './modules/panier';
+import {produits} from './modules/addToCart.js';
+import {addToLocalStorage} from './modules/addToCart.js';
+import {notification} from './modules/addToCart.js';
 
 const id = 'produit.html?id=';
 let hrefURL = location.href;
@@ -37,6 +39,7 @@ function sendRequest(method, url, body = null) {
     })
         
 };
+
 
 
 sendRequest('GET', link)
@@ -89,13 +92,61 @@ sendRequest('GET', link)
 
             // n'oublie pas ajouter button ;)
             constructorHTMLCode(produitForm, template.buttonAjouterAuPanier);
+            constructorHTMLCode(produitForm, template.produitNotification);
 
             let ajouterAuPanier = document.getElementById("produit-form-post");
 
-            ajouterAuPanier.addEventListener('click', (event) => {
-                panier.product_id.push(objetJSON._id);
-                localStorage.setItem('panier', JSON.stringify(panier.product_id))
-                console.log(panier);
+            
+
+            //ajoute en localStorage
+            ajouterAuPanier.addEventListener('click', () => {
+                
+                let produitForm = document.getElementById('produit-form'); 
+
+                let radios = document.getElementsByClassName("produit-form-radio");
+                let optionValue;
+                // verification si une lenses etait choisis
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        // get value, set checked flag or do whatever you need to
+                        optionValue = radios[i].value;
+                    }
+                    // n'oublie pas enlever checked
+                    radios[i].checked = false;
+                }
+                console.log("radio value ", optionValue);
+
+                // verifier si utilisateur choisis la lense
+                if (optionValue !== undefined) {
+                    // si nous avons queque chosse dans localStorage il faut recuperer et reenvoyer
+                    if (localStorage.getItem('produitInPanier') !== null) {
+                        let bufferProduits = JSON.parse(localStorage.getItem('produitInPanier'));
+                        addToLocalStorage(bufferProduits, objetJSON, optionValue);
+
+                        notification(objetJSON.name, option, optionValue);
+
+                    } else  {
+
+                        addToLocalStorage(produits, objetJSON, optionValue);
+
+                        notification(objetJSON.name, option, optionValue);
+
+                    }
+
+                } else {
+
+                    console.log("choisiser les " + option);
+
+                    let produitNotification = document.getElementById('produit-notification');
+                    produitNotification.innerText = ("Veillez à choisir la " + option);
+                    let produitNotificationGoPanier = document.getElementById('produit-notification-goPanier');
+                    produitNotificationGoPanier.innerHTML = '';
+
+                }
+
+                console.log("qoui " + radios.checked);
+
+                
             })
 
         } else {
@@ -103,9 +154,5 @@ sendRequest('GET', link)
         }
     })
 
-
-
-
-// variable de article 
 
 
