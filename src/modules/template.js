@@ -5,10 +5,11 @@ export var template = {
     idArticle : '<article class="articles"><div id="produit-img"><img id="imgUrl" src="./images/vcam_1.jpg" alt=""></div><div id="produit-general"><h2 id="produit-nom"></h2><span id="produit-prix"></span><p id="produit-description">Lorem ipsum</p><form action="POST" id="produit-form"><span id="option"></span></form></div></article>',
     classeLabelRadio : '<label class="labelRadio"><input type="radio" name="" class="produit-form-radio" value=""></label>',
     buttonAjouterAuPanier : '<input type="button" id="produit-form-post" value="Ajouter au Panier">',
-    produitNotification : '<span id="produit-notification"></span><span id="produit-notification-goPanier"></span>'
+    produitNotification : '<span id="produit-notification"></span><span id="produit-notification-goPanier"></span>',
+    counter : '<span id="counter"></span>'
 }   
 
-
+// OU et QOUI on insert
 export function constructorHTMLCode(element, tmpl) {
     element.insertAdjacentHTML('beforeend', tmpl);
   };

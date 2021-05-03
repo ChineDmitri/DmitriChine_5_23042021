@@ -1,5 +1,7 @@
 import {constructorHTMLCode} from './modules/template';
 import {template} from './modules/template';
+import {quantityProduct} from './modules/cartStatus.js';
+import {showQuantityOfProducts} from './modules/cartStatus.js';
 
 const link = 'http://localhost:3000/api/cameras';
 let cameras = new XMLHttpRequest();
@@ -57,6 +59,10 @@ promiseCameras.then((value) => {
         produitUrl[i].setAttribute("href", url);
 
     }
+
+    showQuantityOfProducts(quantityProduct());
+
+
 });
 
 

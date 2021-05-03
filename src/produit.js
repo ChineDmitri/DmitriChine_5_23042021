@@ -3,6 +3,8 @@ import {template} from './modules/template';
 import {produits} from './modules/addToCart.js';
 import {addToLocalStorage} from './modules/addToCart.js';
 import {notification} from './modules/addToCart.js';
+import {quantityProduct} from './modules/cartStatus.js';
+import {showQuantityOfProducts} from './modules/cartStatus.js';
 
 const id = 'produit.html?id=';
 let hrefURL = location.href;
@@ -101,11 +103,12 @@ sendRequest('GET', link)
             //ajoute en localStorage
             ajouterAuPanier.addEventListener('click', () => {
                 
-                let produitForm = document.getElementById('produit-form'); 
+                
+                // let produitForm = document.getElementById('produit-form'); 
 
                 let radios = document.getElementsByClassName("produit-form-radio");
                 let optionValue;
-                // verification si une lenses etait choisis
+                // verification si une RADIO (lenses) etait choisis
                 for (var i = 0; i < radios.length; i++) {
                     if (radios[i].checked) {
                         // get value, set checked flag or do whatever you need to
@@ -118,22 +121,26 @@ sendRequest('GET', link)
 
                 // verifier si utilisateur choisis la lense
                 if (optionValue !== undefined) {
-                    // si nous avons queque chosse dans localStorage il faut recuperer et reenvoyer
+                    // si nous avons queque chosse dans localStorage il faut recuperer et reenvoyer à localSotage
                     if (localStorage.getItem('produitInPanier') !== null) {
                         let bufferProduits = JSON.parse(localStorage.getItem('produitInPanier'));
                         addToLocalStorage(bufferProduits, objetJSON, optionValue);
 
                         notification(objetJSON.name, option, optionValue);
+    
+                        showQuantityOfProducts(quantityProduct());
 
-                    } else  {
+                    } else { // sinon il fait directement envoyer à localStorage
 
                         addToLocalStorage(produits, objetJSON, optionValue);
 
                         notification(objetJSON.name, option, optionValue);
 
+                        showQuantityOfProducts(quantityProduct());
+
                     }
 
-                } else {
+                } else { // sinon message que il faut choisir la lense
 
                     console.log("choisiser les " + option);
 
@@ -148,6 +155,8 @@ sendRequest('GET', link)
 
                 
             })
+
+            showQuantityOfProducts(quantityProduct());
 
         } else {
             console.log('piratage');
