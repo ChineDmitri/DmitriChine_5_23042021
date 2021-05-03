@@ -127,6 +127,52 @@ header .panier:hover {
           box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
 }
 
+footer {
+  -webkit-box-shadow: 0 0 10px #1D0D1A;
+          box-shadow: 0 0 10px #1D0D1A;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 2%;
+  background-color: #F3E9F1;
+}
+
+footer .mode-de-payment li {
+  padding: 0;
+  color: #8F5BFE;
+  font-size: 3rem;
+}
+
+footer .liens-footer, footer .mode-de-payment {
+  padding: 0;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .liens-footer li, footer .mode-de-payment li {
+  font-weight: 800;
+  margin: 0 1rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer .liens-footer li a, footer .mode-de-payment li a {
+  color: #1D0D1A;
+}
+
+footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
+  color: #B26E9C;
+}
+
 main {
   font-family: 'Trirong', serif;
   color: #1D0D1A;
@@ -257,51 +303,5 @@ main .ligne .articles #produit-notification-goPanier {
   width: 100%;
   text-align: center;
   width: 100%;
-}
-
-footer {
-  -webkit-box-shadow: 0 0 10px #1D0D1A;
-          box-shadow: 0 0 10px #1D0D1A;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  padding: 2%;
-  background-color: #F3E9F1;
-}
-
-footer .mode-de-payment li {
-  padding: 0;
-  color: #8F5BFE;
-  font-size: 3rem;
-}
-
-footer .liens-footer, footer .mode-de-payment {
-  padding: 0;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-footer .liens-footer li, footer .mode-de-payment li {
-  font-weight: 800;
-  margin: 0 1rem;
-  padding: 0;
-  list-style-type: none;
-}
-
-footer .liens-footer li a, footer .mode-de-payment li a {
-  color: #1D0D1A;
-}
-
-footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
-  color: #B26E9C;
 }
 /*# sourceMappingURL=produit.css.map */

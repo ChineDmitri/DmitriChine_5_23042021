@@ -1,90 +1,12 @@
 @import "_variables.scss";
+@import "_mixin.scss";
 
-body {
-    padding: 0;
-    margin: 0;
-    background-color: $bg_color;
-}
-
-a {
-    text-decoration: none;
-    color: $text_color;
-}
-
-#container {
-    font-family: 'Trirong', serif;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    width: 750px;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Finger Paint', cursive;
-    font-weight: 800;
-    color: $text_color;
-    margin: 1vh 0 2% 0;
-    background-color: $bg_color;
-    #name { 
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        height: 150px;
-        flex-basis: 65%;
-        border-radius: 25px;
-        background-color: $objet_color;
-        color: $title_color; 
-        margin: 1vh 0;
-        box-shadow: 0 0 5px $text_color;
-        h1 {
-            font-size: 2rem;
-        }
-        
-    }
-
-    .panier {
-        color: $title_color;
-        height: 150px;
-        margin: 1vh 0;
-        position: relative;
-        flex-basis: 32%;
-        flex-wrap: wrap;
-        border-radius: 25px;
-        background-color: $objet_color;
-        box-shadow: 0 0 5px $text_color;
-        i {
-            background: linear-gradient(120deg, $ico_color1 15%, $ico_color2 50%, $ico_color3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: absolute;
-            right: calc(50% - 4rem);
-            top: calc(50% - 4rem);
-            font-size: 8rem;
-        }
-        #counter {
-            font-family: 'Trirong', serif;
-            font-size: 2rem;
-            position: absolute;
-            top: 25%;
-            right: calc(50% - 2rem); 
-        }
-        transition-duration: 400ms;
-        &:hover {
-            transition-duration: 400ms;
-            box-shadow: -1px -1px 5px 0 $ico_color1,
-            0px 0px 10px 0 $ico_color2,
-            1px 1px 5px 0 $ico_color3;
-        }
-    } 
-    
-}
+@include template;
 
 main {
+    a:hover {
+        color: $text_color;
+    }
     font-family: 'Trirong', serif;
     color: $text_color;
     display: flex;
@@ -166,42 +88,6 @@ main {
                     }
                 }
             }
-        }
-    }
-}
-
-footer {
-    box-shadow: 0 0 10px $text_color;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    padding: 2%;
-    background-color: #F3E9F1;
-    .mode-de-payment {
-        li {
-            padding: 0;
-            color: $ico_color3;
-            font-size: 3rem; 
-        }
-    } 
-    .liens-footer, .mode-de-payment {
-        padding: 0;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-        li {
-            font-weight: 800;
-            margin: 0 1rem;
-            padding: 0;
-            list-style-type: none;
-            a {
-                color: $text_color;
-                &:hover {
-                    color: $ico_color2;
-                }
-            }
-          
         }
     }
 }
