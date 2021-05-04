@@ -1,10 +1,16 @@
-import {constructorHTMLCode} from './modules/template';
-import {template} from './modules/template';
-import {quantityProduct} from './modules/cartStatus.js';
-import {showQuantityOfProducts} from './modules/cartStatus.js';
+import {
+    constructorHTMLCode, 
+    template
+} from './modules/template';
+
+import {
+    quantityProduct,
+    showQuantityOfProducts
+} from './modules/cartStatus.js';
+
 import {
     sendRequest
-} from './modules/sendRequest.js'
+} from './modules/sendRequest.js';
 
 const link = 'http://localhost:3000/api/cameras';
 
@@ -71,7 +77,11 @@ sendRequest('GET', link)
         showQuantityOfProducts(quantityProduct());
 
 
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+    
 
 
 

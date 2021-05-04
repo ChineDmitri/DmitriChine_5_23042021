@@ -9,7 +9,6 @@ export function sendRequest(method, url, body = null) {
         request.responseType = 'text';
         request.setRequestHeader('Content-Type', 'application/json');
 
-        request.send(JSON.stringify(body));
     
         request.onload = () => {
             if (request.status >= 400) {
@@ -23,6 +22,8 @@ export function sendRequest(method, url, body = null) {
         request.onerror = () => {
             reject(request.response);
         }
+
+        request.send(JSON.stringify(body));
     })
         
 };
