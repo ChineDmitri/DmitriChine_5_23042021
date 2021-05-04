@@ -1,10 +1,22 @@
-import {constructorHTMLCode} from './modules/template';
-import {template} from './modules/template';
-import {produits} from './modules/addToCart.js';
-import {addToLocalStorage} from './modules/addToCart.js';
-import {notification} from './modules/addToCart.js';
-import {quantityProduct} from './modules/cartStatus.js';
-import {showQuantityOfProducts} from './modules/cartStatus.js';
+import {
+    constructorHTMLCode,
+    template
+} from './modules/template.js';
+
+import {
+    produits,
+    addToLocalStorage,
+    notification
+} from './modules/addToCart.js';
+
+import {
+    quantityProduct,
+    showQuantityOfProducts
+} from './modules/cartStatus.js';
+
+import {
+    sendRequest
+} from './modules/sendRequest.js'
 
 const id = 'produit.html?id=';
 let hrefURL = location.href;
@@ -23,25 +35,6 @@ if (hrefURL.includes(id) == true) {
 
 
 const link = 'http://localhost:3000/api/cameras';
-
-//function pour GET POST 
-function sendRequest(method, url, body = null) {
-    return new Promise( (resolve, reject) => {
-
-        let cameras = new XMLHttpRequest();
-    
-        cameras.open(method, url);
-
-        cameras.send(body);
-    
-        cameras.onload = () => {
-            let arrayCameras = JSON.parse(cameras.response);
-            resolve(arrayCameras)
-        }
-    })
-        
-};
-
 
 
 sendRequest('GET', link)
@@ -162,6 +155,10 @@ sendRequest('GET', link)
             console.log('piratage');
         }
     })
+    .catch ((err) => {
+      console.log(err)  
+    }) 
+    
 
 
 

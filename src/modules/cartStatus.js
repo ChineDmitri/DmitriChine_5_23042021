@@ -1,7 +1,7 @@
 import { 
     constructorHTMLCode, 
     template 
-} from "./template";
+} from "./template.js";
 
 export function quantityProduct() {
 

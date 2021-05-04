@@ -2,68 +2,76 @@ import {constructorHTMLCode} from './modules/template';
 import {template} from './modules/template';
 import {quantityProduct} from './modules/cartStatus.js';
 import {showQuantityOfProducts} from './modules/cartStatus.js';
+import {
+    sendRequest
+} from './modules/sendRequest.js'
 
 const link = 'http://localhost:3000/api/cameras';
-let cameras = new XMLHttpRequest();
 
-cameras.open('GET', link);
-cameras.send();
+// let cameras = new XMLHttpRequest();
 
-// creation promise et resolve ARRAY avec les cameras
-let promiseCameras = new Promise((resolve, reject) => {
-    cameras.onload = () => {
-        let arrayCameras = JSON.parse(cameras.response);
-        console.log(arrayCameras);
-        resolve(arrayCameras)
-    }
-});
+// cameras.open('GET', link);
+// cameras.send();
 
-
-promiseCameras.then((value) => {
-    let classMaintContent = document.getElementsByClassName('main-content');
-    let k = -1;
-
-    // if (value.length % 2 !== 0) {
-    //     constructorLigne(classMaintContent[0]);
-    // };
-
-    for (let i = 0; i < value.length; i++) {
-
-        if (i % 2 === 0) {
-            // creation une ligne
-            constructorHTMLCode(classMaintContent[0], template.classLigne);
-            k++;
-        } 
-
-        let classLigne = document.getElementsByClassName('ligne');
-        //creation des articles dans la ligne avec deux article (k = indice de ligne)
-        constructorHTMLCode(classLigne[k], template.classArticle);
-
-        let produitName = document.getElementsByClassName("produit-nom");
-        //atribution du nom pour article 
-        produitName[i].innerText = value[i].name;
-
-        let produitPrix = document.getElementsByClassName("produit-prix");
-        //atributipn de la prix pour article
-        produitPrix[i].innerText = (value[i].price + " €");
-
-        // attribution de url de l'image pour article
-        let produitImg = document.getElementsByClassName("imgUrl");
-        produitImg[i].setAttribute("src", value[i].imageUrl);
-
-        // creation url de la produit
-        let url = ('./produit.html?id=' + value[i]._id);
-
-        // attribution de l'url pour article 
-        let produitUrl = document.getElementsByClassName('articleUrl');
-        produitUrl[i].setAttribute("href", url);
-
-    }
-
-    showQuantityOfProducts(quantityProduct());
+// // creation promise et resolve ARRAY avec les cameras
+// let promiseCameras = new Promise((resolve, reject) => {
+//     cameras.onload = () => {
+//         let arrayCameras = JSON.parse(cameras.response);
+//         console.log(arrayCameras);
+//         resolve(arrayCameras)
+//     }
+// });
 
 
-});
+
+
+
+sendRequest('GET', link)
+    .then((value) => {
+        let classMaintContent = document.getElementsByClassName('main-content');
+        let k = -1;
+
+        // if (value.length % 2 !== 0) {
+        //     constructorLigne(classMaintContent[0]);
+        // };
+
+        for (let i = 0; i < value.length; i++) {
+
+            if (i % 2 === 0) {
+                // creation une ligne
+                constructorHTMLCode(classMaintContent[0], template.classLigne);
+                k++;
+            }
+
+            let classLigne = document.getElementsByClassName('ligne');
+            //creation des articles dans la ligne avec deux article (k = indice de ligne)
+            constructorHTMLCode(classLigne[k], template.classArticle);
+
+            let produitName = document.getElementsByClassName("produit-nom");
+            //atribution du nom pour article 
+            produitName[i].innerText = value[i].name;
+
+            let produitPrix = document.getElementsByClassName("produit-prix");
+            //atributipn de la prix pour article
+            produitPrix[i].innerText = (value[i].price + " €");
+
+            // attribution de url de l'image pour article
+            let produitImg = document.getElementsByClassName("imgUrl");
+            produitImg[i].setAttribute("src", value[i].imageUrl);
+
+            // creation url de la produit
+            let url = ('./produit.html?id=' + value[i]._id);
+
+            // attribution de l'url pour article 
+            let produitUrl = document.getElementsByClassName('articleUrl');
+            produitUrl[i].setAttribute("href", url);
+
+        }
+
+        showQuantityOfProducts(quantityProduct());
+
+
+    });
 
 
 
