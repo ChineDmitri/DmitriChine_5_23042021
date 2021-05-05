@@ -88,7 +88,7 @@ header .panier {
 }
 
 header .panier i {
-  background: linear-gradient(120deg, #E68A08 15%, #B26E9C 50%, #8F5BFE);
+  background: linear-gradient(120deg, #E68A08 30%, #B26E9C 70%, #8F5BFE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: absolute;

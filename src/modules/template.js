@@ -6,7 +6,8 @@ export var template = {
     classeLabelRadio : '<label class="labelRadio"><input type="radio" name="" class="produit-form-radio" value=""></label>',
     buttonAjouterAuPanier : '<input type="button" id="produit-form-post" value="Ajouter au Panier">',
     produitNotification : '<span id="produit-notification"></span><span id="produit-notification-goPanier"></span>',
-    counter : '<span id="counter"></span>'
+    counter : '<span id="counter"></span>',
+    productInCart: '<li class="product"><span class="product-name">Photo 50mm</span><button class="product-delete" id="" value="1" ><i class="fas fa-trash-alt"></i></button></li>'
 }   
 
 // OU et QOUI on insert

@@ -61,7 +61,7 @@
             background-color: $objet_color;
             box-shadow: 0 0 5px $text_color;
             i {
-                background: linear-gradient(120deg, $ico_color1 15%, $ico_color2 50%, $ico_color3);
+                background: linear-gradient(120deg, $ico_color1 30%, $ico_color2 70%, $ico_color3);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 position: absolute;

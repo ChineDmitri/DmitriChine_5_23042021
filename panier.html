@@ -4,14 +4,69 @@
     <!-- Warning: The type attribute is unnecessary for JavaScript resources. -->
     <script defer src="./panier.bundle.js"></script>
     <script defer src="./polyfill.bundle.js"></script>
-    <!-- <script defer src="./dist/produit.bundle.js"></script>
+    <!-- <script defer src="./dist/panier.bundle.js"></script>
     <script defer src="./dist/polyfill.bundle.js"></script> -->
+    <link rel="stylesheet" href="./style/css/panier.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/f758d5de88.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Trirong:ital,wght@0,200;0,300;0,400;0,700;1,200;1,400&display=swap" rel="stylesheet">
+    <title>Panier</title>
 </head>
 <body>
-    
+    <div id="container">
+        <header>
+            <div id="name">
+                <h1>
+                    <a href="./">
+                        Orinoco
+                        <br>
+                        Votre shopping online
+                    </a>
+                </h1>
+            </div>
+            <a href="./panier.html" class="panier">
+                <aside >
+                    <i class="fas fa-shopping-cart"></i>
+                    
+                </aside>
+            </a>
+        </header>
+        <main class="main-content">
+            <article class="panier">
+                <h2>La composition de votre panier</h2>
+                <ol>
+                    <!-- <li class="product">               
+                            <span class="product-name">Photo 50mm</span>
+                            <button class="product-delete" value="1">
+                                <i class="fas fa-trash-alt"></i>    
+                            </button>
+                    </li>
+                
+                    <li class="product">
+                            <span class="product-name">Photo 50mm</span>
+                            <button class="product-delete" value="1">
+                                <i class="fas fa-trash-alt"></i>    
+                            </button>
+                    </li> -->
+                </ol>
+            </article>
+        </main>
+        <footer>
+            <ul class="liens-footer">
+                <li><a href="mailto:contact@orinoco.fr">Contact</a></li>
+                <li><a href="#">Obtenir de l'aide</a></li>
+            </ul>
+            <ul class="mode-de-payment">
+                <li><i class="fab fa-cc-visa"></i></li>
+                <li><i class="fab fa-cc-mastercard"></i></li>
+                <li><i class="fab fa-cc-paypal"></i></li>
+                <li><i class="fab fa-cc-amex"></i></li>
+            </ul>
+        </footer>
+
+    </div>
 </body>
 </html>

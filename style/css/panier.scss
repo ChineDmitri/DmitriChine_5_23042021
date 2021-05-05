@@ -1,0 +1,79 @@
+@import "_variables.scss";
+@import "_mixin.scss";
+
+@include template;
+
+
+
+main {
+    font-family: 'Trirong', serif;
+    color: $text_color;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg_color;
+    margin: 1vh 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    .panier {    
+        h2 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        box-shadow: 0 0 5px $text_color; 
+        width: 98%;
+        display: flex;   
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 2%;
+        background-color: $objet_color;
+        padding: 1%;
+        border-radius: 25px;
+        ol {
+            display: flex;
+            flex-direction: column;
+            counter-reset: compteur;  
+            margin: 0 2rem;
+            padding: 0;
+        }
+        .product {  // LI   
+            position: relative;       
+            list-style: none;
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            box-shadow: 0 0 5px $text_color; 
+            &:before {
+                position: relative;
+                left: -1rem;
+                counter-increment: compteur;
+                content:counter(compteur);
+                color: $text_color;
+                background: silver;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;   
+                border-radius: 50%;
+                box-shadow: -1.5px 0px 5px $text_color;
+            }
+            &-name {
+                width: 90%;
+            }
+            &-delete {
+                color: #F15555;
+                border: none;
+                padding: 0;
+                font-size: 1rem;
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+            }
+        }
+    }
+}
