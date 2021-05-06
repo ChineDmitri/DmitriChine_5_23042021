@@ -57,14 +57,18 @@ sendRequest("GET", linkGET)
             console.log("objet " + objetJSON.lenses);
             document.getElementsByClassName("product-name")[i].innerText = objetJSON.name + " " + option + " " + objetJSON.lenses;
 
-            document.getElementsByClassName("product-delete")[i].setAttribute("onclick", "");
+            document.getElementsByClassName("product-delete")[i].setAttribute("value", i);
+
+            // cration pour chaque butonne addEventListener
+            document.getElementsByClassName("product-delete")[i].addEventListener('click', () => {
+                console.log(document.getElementsByClassName("product-delete")[i].value)
+            })
+           
         }
-       
-        let deleteButton = document.getElementsByClassName("product-delete");
-        deleteButton.onclick(() => alert("gogogo"))
+
 
     }
-
+    
 })
 
 
