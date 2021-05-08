@@ -128,6 +128,7 @@ header .panier:hover {
 }
 
 footer {
+  bottom: 0;
   -webkit-box-shadow: 0 0 10px #1D0D1A;
           box-shadow: 0 0 10px #1D0D1A;
   border-top-left-radius: 25px;
@@ -184,8 +185,33 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
+  -webkit-animation-name: slowPopUnder;
+          animation-name: slowPopUnder;
+  -webkit-animation-duration: 250ms;
+          animation-duration: 250ms;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes slowPopUnder {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes slowPopUnder {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 #popUnder #accepter, #popUnder #refuser {
@@ -199,6 +225,10 @@ body {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   cursor: pointer;
+}
+
+#popUnder #accepter:focus + #popUnder, #popUnder #refuser:focus + #popUnder {
+  background-color: black;
 }
 
 #popUnder #accepter {
@@ -280,6 +310,7 @@ main .panier h2 {
 }
 
 main .panier ol {
+  min-height: 45vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,15 +337,13 @@ main .panier .product {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-radius: 1rem;
   -webkit-box-shadow: 0 0 5px #1D0D1A;
           box-shadow: 0 0 5px #1D0D1A;
 }
 
 main .panier .product:before {
   position: relative;
-  left: -1rem;
   counter-increment: compteur;
   content: counter(compteur);
   color: #1D0D1A;
@@ -331,12 +360,11 @@ main .panier .product:before {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  -webkit-box-shadow: -1.5px 0px 5px #1D0D1A;
-          box-shadow: -1.5px 0px 5px #1D0D1A;
 }
 
 main .panier .product-name {
-  width: 90%;
+  margin-left: 0.5rem;
+  width: calc(90% - 0.5rem);
 }
 
 main .panier .product-delete {
