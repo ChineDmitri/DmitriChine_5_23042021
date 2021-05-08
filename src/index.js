@@ -1,4 +1,8 @@
 import {
+    link
+} from './modules/hostLink.js';
+
+import {
     constructorHTMLCode, 
     template
 } from './modules/template';
@@ -11,8 +15,6 @@ import {
 import {
     sendRequest
 } from './modules/sendRequest.js';
-
-const link = 'http://localhost:3000/api/cameras';
 
 // let cameras = new XMLHttpRequest();
 
@@ -27,10 +29,6 @@ const link = 'http://localhost:3000/api/cameras';
 //         resolve(arrayCameras)
 //     }
 // });
-
-
-
-
 
 sendRequest('GET', link)
     .then((value) => {

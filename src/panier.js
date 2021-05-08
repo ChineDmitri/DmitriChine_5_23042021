@@ -1,4 +1,8 @@
 import {
+    link
+} from './modules/hostLink.js';
+
+import {
     sendRequest
 } from './modules/sendRequest.js';
 
@@ -33,8 +37,6 @@ import {
 //      products: ["5be1ef211c9d44000030b062", "5be9bc241c9d440000a730e7", "5be1ef211c9d44000030b062"]
 // }
     
-
-let linkGET = `http://localhost:3000/api/cameras/`;
 let lingPOST = `http://localhost:3000/api/cameras/order`;
 
 showQuantityOfProducts(quantityProduct());
@@ -43,7 +45,7 @@ function removePopUnder() {
     
     }
 
-sendRequest("GET", linkGET)
+sendRequest("GET", link)
 .then((data) => {
 
     if (!quantityProduct()) {
@@ -56,6 +58,8 @@ sendRequest("GET", linkGET)
     
         let panierOL = document.getElementsByTagName("ol");
         
+        let prixTotal = 0;
+
         // delisting products
         for (let i = 0; i < quantityProduct(); i++) {
             constructorHTMLCode(panierOL[0], template.productInCart);
@@ -65,8 +69,11 @@ sendRequest("GET", linkGET)
             let option = JSON.stringify(objetJSON).slice(2, JSON.stringify(objetJSON).indexOf('":'));
             let productName = document.getElementsByClassName("product-name")[i]
 
+            //compteur de prix total de la commande
+            prixTotal += objetJSON.price;
+
             console.log("objet " + objetJSON.lenses);
-            productName.innerText = objetJSON.name + " " + option + " " + objetJSON.lenses;
+            productName.innerText = objetJSON.name + " " + option + " " + objetJSON.lenses + " (prix:" + objetJSON.price + " €)";
 
             document.getElementsByClassName("product-delete")[i].setAttribute("value", i);
 
@@ -78,7 +85,7 @@ sendRequest("GET", linkGET)
                 let tagBody = document.getElementsByTagName("body");
                 let messageNotification = document.getElementsByClassName("product-name")[i].textContent;
 
-                constructorHTMLCode(tagBody[0], template.notificationDelete);
+                constructorHTMLCode(tagBody[0], template.notification);
                 document.getElementById("popUnder-body-p").innerHTML = ("Voulez-vous <u>supprimer</u> " + messageNotification + " ?");
                 document.getElementById("accepter").setAttribute("value", i);
 
@@ -89,6 +96,8 @@ sendRequest("GET", linkGET)
             })
 
         }
+        
+        document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal / 100 + " €");
 
 
     }

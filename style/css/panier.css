@@ -250,7 +250,7 @@ body {
   padding: 1%;
   background-color: #F3E9F1;
   position: absolute;
-  top: 38%;
+  top: 33%;
   left: 30%;
   width: 38%;
   z-index: 10;
@@ -259,7 +259,7 @@ body {
 
 #popUnder-body-p {
   padding: 0;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   text-align: center;
 }
 
@@ -309,8 +309,15 @@ main .panier h2 {
   text-align: center;
 }
 
+main .panier #sommeTotal {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  text-align: center;
+}
+
 main .panier ol {
-  min-height: 45vh;
+  min-height: 40vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -365,6 +372,9 @@ main .panier .product:before {
 main .panier .product-name {
   margin-left: 0.5rem;
   width: calc(90% - 0.5rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 main .panier .product-delete {

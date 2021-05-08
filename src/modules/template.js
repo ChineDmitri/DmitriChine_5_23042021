@@ -5,10 +5,10 @@ export var template = {
     idArticle : '<article class="articles"><div id="produit-img"><img id="imgUrl" src="./images/vcam_1.jpg" alt=""></div><div id="produit-general"><h2 id="produit-nom"></h2><span id="produit-prix"></span><p id="produit-description">Lorem ipsum</p><form action="POST" id="produit-form"><span id="option"></span></form></div></article>',
     classeLabelRadio : '<label class="labelRadio"><input type="radio" name="" class="produit-form-radio" value=""></label>',
     buttonAjouterAuPanier : '<input type="button" id="produit-form-post" value="Ajouter au Panier">',
-    produitNotification : '<span id="produit-notification"></span><span id="produit-notification-goPanier"></span>',
     counter : '<span id="counter"></span>',
     productInCart: '<li class="product"><span class="product-name">Photo 50mm</span><button class="product-delete" id="supr" value="" ><i class="fas fa-trash-alt"></i></button></li>',
-    notificationDelete: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-p"></span><span id="popUnder-body-btnVerification"><button id="accepter" value=""><i class="fas fa-check-square"></i></button><button id="refuser"><i class="fas fa-window-close"></i></button></span></div> </div>'
+    notification: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-p"></span><span id="popUnder-body-btnVerification"><button id="accepter" value=""><i class="fas fa-check-square"></i></button><button id="refuser"><i class="fas fa-window-close"></i></button></span></div> </div>',
+    notificationErr: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-btnClose"><button id="refuser"><i class="fas fa-times-circle"></i></button></span><span id="popUnder-body-p">Veuillez choisir une option</span></div></div>'
 }   
 
 // OU et QOUI on insert

@@ -1,4 +1,10 @@
 import {
+    portFronEnd,
+    domaine,
+    link
+} from './modules/hostLink.js';
+
+import {
     constructorHTMLCode,
     template
 } from './modules/template.js';
@@ -32,9 +38,6 @@ if (hrefURL.includes(id) == true) {
 // console.log(hrefURL.includes(id));
 // console.log(hrefURL.length);
 // console.log(idProduitByURL);
-
-
-const link = 'http://localhost:3000/api/cameras';
 
 
 sendRequest('GET', link)
@@ -87,7 +90,6 @@ sendRequest('GET', link)
 
             // n'oublie pas ajouter button ;)
             constructorHTMLCode(produitForm, template.buttonAjouterAuPanier);
-            constructorHTMLCode(produitForm, template.produitNotification);
 
             let ajouterAuPanier = document.getElementById("produit-form-post");
 
@@ -95,9 +97,9 @@ sendRequest('GET', link)
 
             //ajoute en localStorage
             ajouterAuPanier.addEventListener('click', () => {
-                
-                
+                let tagBody = document.getElementsByTagName("body")
                 // let produitForm = document.getElementById('produit-form'); 
+                // constructorHTMLCode(tagBody[0], template.notificationErr);
 
                 let radios = document.getElementsByClassName("produit-form-radio");
                 let optionValue;
@@ -116,6 +118,9 @@ sendRequest('GET', link)
                 if (optionValue !== undefined) {
                     // si nous avons queque chosse dans localStorage il faut recuperer et reenvoyer à localSotage
                     if (localStorage.getItem('produitInPanier') !== null) {
+                        
+                        constructorHTMLCode(tagBody[0], template.notification);
+
                         let bufferProduits = JSON.parse(localStorage.getItem('produitInPanier'));
                         addToLocalStorage(bufferProduits, objetJSON, optionValue);
 
@@ -124,6 +129,7 @@ sendRequest('GET', link)
                         showQuantityOfProducts(quantityProduct());
 
                     } else { // sinon il fait directement envoyer à localStorage
+                        constructorHTMLCode(tagBody[0], template.notification);
 
                         addToLocalStorage(produits, objetJSON, optionValue);
 
@@ -136,13 +142,24 @@ sendRequest('GET', link)
                 } else { // sinon message que il faut choisir la lense
 
                     console.log("choisiser les " + option);
-
-                    let produitNotification = document.getElementById('produit-notification');
-                    produitNotification.innerText = ("Veillez à choisir la " + option);
-                    let produitNotificationGoPanier = document.getElementById('produit-notification-goPanier');
-                    produitNotificationGoPanier.innerHTML = '';
+                    constructorHTMLCode(tagBody[0], template.notificationErr);
+                    // let produitNotification = document.getElementById('produit-notification');
+                    // produitNotification.innerText = ("Veillez à choisir la " + option);
+                    // let produitNotificationGoPanier = document.getElementById('produit-notification-goPanier');
+                    // produitNotificationGoPanier.innerHTML = '';
 
                 }
+
+                // destruction PopUnder
+                let refuser = document.getElementById("refuser");
+                refuser.addEventListener("click", () => {
+                    document.getElementById('popUnder').remove();
+                })
+
+                let accepter = document.getElementById("accepter");
+                accepter.addEventListener("click", () => {
+                    window.location.href = (domaine + portFronEnd + "/panier.html")
+                })
 
                 console.log("qoui " + radios.checked);
 

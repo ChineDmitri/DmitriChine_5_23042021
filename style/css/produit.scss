@@ -37,10 +37,10 @@
         }
     }
     #accepter {
-        color: $negative_color;
+        color: $ico_color2;
     }
     #refuser {
-        color: $ico_color2;
+        color: $negative_color;
     }
     &-body {
         display: flex;
@@ -48,18 +48,21 @@
         padding: 1%;
         background-color: $objet_color;
         position: absolute;
-        top: 38%;
+        top: 33%;
         left: 30%;
         width: 38%;
         z-index: 10;
         border-radius: 1rem;
         &-p {
             padding: 0;
-            margin: 1rem 0;
+            margin: 0 0 1rem;
             text-align: center;
         }
         &-btnVerification {   
             text-align: center;
+        }
+        &-btnClose {   
+            text-align: right;
         }
     } 
     

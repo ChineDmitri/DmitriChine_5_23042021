@@ -228,11 +228,11 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
 }
 
 #popUnder #accepter {
-  color: #F15555;
+  color: #B26E9C;
 }
 
 #popUnder #refuser {
-  color: #B26E9C;
+  color: #F15555;
 }
 
 #popUnder-body {
@@ -246,7 +246,7 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
   padding: 1%;
   background-color: #F3E9F1;
   position: absolute;
-  top: 38%;
+  top: 33%;
   left: 30%;
   width: 38%;
   z-index: 10;
@@ -255,12 +255,16 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
 
 #popUnder-body-p {
   padding: 0;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   text-align: center;
 }
 
 #popUnder-body-btnVerification {
   text-align: center;
+}
+
+#popUnder-body-btnClose {
+  text-align: right;
 }
 
 main {
