@@ -173,6 +173,70 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
   color: #B26E9C;
 }
 
+body {
+  position: relative;
+}
+
+#popUnder {
+  font-family: 'Trirong', serif;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+#popUnder #accepter, #popUnder #refuser {
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  padding: 0;
+  border: 0;
+}
+
+#popUnder #accepter:hover, #popUnder #refuser:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+#popUnder #accepter {
+  color: #F15555;
+}
+
+#popUnder #refuser {
+  color: #B26E9C;
+}
+
+#popUnder-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1%;
+  background-color: #F3E9F1;
+  position: absolute;
+  top: 38%;
+  left: 30%;
+  width: 38%;
+  z-index: 10;
+  border-radius: 1rem;
+}
+
+#popUnder-body-p {
+  padding: 0;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+#popUnder-body-btnVerification {
+  text-align: center;
+}
+
 main {
   font-family: 'Trirong', serif;
   color: #1D0D1A;

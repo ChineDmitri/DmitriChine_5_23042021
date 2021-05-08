@@ -12,6 +12,11 @@ import {
     template
 } from './modules/template.js';
 
+import {
+    verificationDelete,
+    deleteArticle
+} from './modules/removeFromCart';
+
 // let commande = {
 //     contact: {
 //         firstName: "Dmitri",
@@ -34,6 +39,10 @@ let lingPOST = `http://localhost:3000/api/cameras/order`;
 
 showQuantityOfProducts(quantityProduct());
 
+function removePopUnder() {
+    
+    }
+
 sendRequest("GET", linkGET)
 .then((data) => {
 
@@ -47,29 +56,47 @@ sendRequest("GET", linkGET)
     
         let panierOL = document.getElementsByTagName("ol");
         
+        // delisting products
         for (let i = 0; i < quantityProduct(); i++) {
             constructorHTMLCode(panierOL[0], template.productInCart);
             let objetJSON = data.find(objet => objet._id === dataLocalStorage.product_id[i]);
 
             // regarder si c'est lenses / couler / vernil
             let option = JSON.stringify(objetJSON).slice(2, JSON.stringify(objetJSON).indexOf('":'));
+            let productName = document.getElementsByClassName("product-name")[i]
 
             console.log("objet " + objetJSON.lenses);
-            document.getElementsByClassName("product-name")[i].innerText = objetJSON.name + " " + option + " " + objetJSON.lenses;
+            productName.innerText = objetJSON.name + " " + option + " " + objetJSON.lenses;
 
             document.getElementsByClassName("product-delete")[i].setAttribute("value", i);
 
             // cration pour chaque butonne addEventListener
             document.getElementsByClassName("product-delete")[i].addEventListener('click', () => {
-                console.log(document.getElementsByClassName("product-delete")[i].value)
+                console.log(document.getElementsByClassName("product-delete")[i].value);
+                let indexArticle = document.getElementsByClassName("product-delete")[i].value;
+
+                let tagBody = document.getElementsByTagName("body");
+                let messageNotification = document.getElementsByClassName("product-name")[i].textContent;
+
+                constructorHTMLCode(tagBody[0], template.notificationDelete);
+                document.getElementById("popUnder-body-p").innerHTML = ("Voulez-vous <u>supprimer</u> " + messageNotification + " ?");
+                document.getElementById("accepter").setAttribute("value", i);
+
+
+                verificationDelete();
+                //envoyer en function idArticle
+                deleteArticle(indexArticle);
             })
-           
+
         }
 
 
     }
     
 })
+
+
+
 
 
 

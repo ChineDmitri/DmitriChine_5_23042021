@@ -7,7 +7,8 @@ export var template = {
     buttonAjouterAuPanier : '<input type="button" id="produit-form-post" value="Ajouter au Panier">',
     produitNotification : '<span id="produit-notification"></span><span id="produit-notification-goPanier"></span>',
     counter : '<span id="counter"></span>',
-    productInCart: '<li class="product"><span class="product-name">Photo 50mm</span><button class="product-delete" id="supr" value="" ><i class="fas fa-trash-alt"></i></button></li>'
+    productInCart: '<li class="product"><span class="product-name">Photo 50mm</span><button class="product-delete" id="supr" value="" ><i class="fas fa-trash-alt"></i></button></li>',
+    notificationDelete: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-p"></span><span id="popUnder-body-btnVerification"><button id="accepter" value=""><i class="fas fa-check-square"></i></button><button id="refuser"><i class="fas fa-window-close"></i></button></span></div> </div>'
 }   
 
 // OU et QOUI on insert
