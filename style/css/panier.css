@@ -405,6 +405,14 @@ main .panier #commande {
           box-shadow: 0 0 5px #1D0D1A;
 }
 
+main .panier #commande label .valide {
+  border: 2px solid green;
+}
+
+main .panier #commande label .error {
+  border: 2px solid red;
+}
+
 main .panier #commande #first-last-name {
   width: 100%;
   display: -webkit-box;

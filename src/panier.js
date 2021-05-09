@@ -41,10 +41,6 @@ let lingPOST = `http://localhost:3000/api/cameras/order`;
 
 showQuantityOfProducts(quantityProduct());
 
-function removePopUnder() {
-    
-    }
-
 sendRequest("GET", link)
 .then((data) => {
 
@@ -100,9 +96,92 @@ sendRequest("GET", link)
         document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal / 100 + " €");
 
 
+       
+
+        // verif firstName
+        // let firstName = document.getElementById("firstName");
+        // firstName.addEventListener('input', () => {
+        //     if (regexFirstNameLastName.test(firstName.value)) {
+        //         submit.removeAttribute("disabled");
+        //     } else {
+        //         submit.setAttribute("disabled","true");
+        //     }
+        // })
+
+        
+        
     }
     
 })
+.then(() => {
+    // validation donné
+    let check = false;
+    
+    let submit = document.getElementById("submit");
+
+    let regexFirstNameLastName = /^([A-Za-z]+)/;
+
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById('lastName');
+
+    function checkInput(input) {
+        input.addEventListener('blur', () => {
+            check = regexFirstNameLastName.test(input.value);
+            console.log(check)
+            if (check) {
+                input.setAttribute("class", "valide");
+            } else {
+                input.setAttribute("class", "error")
+            }
+        })
+    }
+
+    checkInput(firstName);
+    checkInput(lastName);
+
+    
+
+    // function validationInput(input, regex) {
+        
+    //     input.addEventListener('input', () => {
+    //         if (regex.test(input.value)) {
+    //             console.log('ras pour ' + input.id)
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     })
+    // }
+
+    // let lastName = document.getElementById('lastName');
+    // let firstName = document.getElementById("firstName");
+
+    // let validateurLastName = false;
+    // let validateurFirstName = false;
+
+    // validateurLastName = validationInput(lastName, regexFirstNameLastName);
+    // validateurFirstName = validationInput(firstName, regexFirstNameLastName);
+    
+
+
+    // submit.addEventListener('click', (validateurLastName, validateurFirstName) => {
+    //     console.log(validateurLastName); 
+    //     console.log(validateurFirstName);
+    //     if (validateurFirstName && validateurLastName) {
+    //         // submit.removeAttribute("disabled");
+    //         console.log("ras!!!")
+    //     } else {
+    //         // submit.setAttribute("disabled", "true")
+    //         console.log("PAS BON!!!!");
+    //     }
+
+    // })
+    
+
+})
+
+        
+        
 
 
 
