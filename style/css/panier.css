@@ -310,14 +310,14 @@ main .panier h2 {
 }
 
 main .panier #sommeTotal {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto 1rem;
   width: 80%;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 main .panier ol {
-  min-height: 40vh;
+  min-height: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,5 +388,143 @@ main .panier .product-delete:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   cursor: pointer;
+}
+
+main .panier #commande {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 2rem 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0 5px #1D0D1A;
+          box-shadow: 0 0 5px #1D0D1A;
+}
+
+main .panier #commande #first-last-name {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+
+main .panier #commande #first-last-name label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  flex-direction: column;
+  width: 50%;
+}
+
+main .panier #commande #first-last-name #firstName {
+  width: 90%;
+}
+
+main .panier #commande #first-last-name #lastName {
+  width: 90%;
+}
+
+main .panier #commande #adress {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+main .panier #commande #adress label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+main .panier #commande #adress #street {
+  width: 95%;
+}
+
+main .panier #commande #zipcode-ville {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+
+main .panier #commande #zipcode-ville label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+main .panier #commande #zipcode-ville #zipcode {
+  width: 90%;
+}
+
+main .panier #commande #zipcode-ville #city {
+  width: 90%;
+}
+
+main .panier #commande #email {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+
+main .panier #commande #email label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+main .panier #commande #email #mail {
+  width: 90%;
+}
+
+main .panier #commande button {
+  width: 50%;
+  margin: 1rem auto;
 }
 /*# sourceMappingURL=panier.css.map */
