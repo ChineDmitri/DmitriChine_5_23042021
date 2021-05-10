@@ -115,29 +115,40 @@ sendRequest("GET", link)
 })
 .then(() => {
     // validation donné
-    let check = false;
-    
+    var checkfirstName = false;
+    var checkLastName = false;
+
     let submit = document.getElementById("submit");
 
-    let regexFirstNameLastName = /^([A-Za-z]+)/;
+    let regexFirstNameLastName = /^([A-Za-z][A-Za-z'-]+)?$/;
 
     let firstName = document.getElementById("firstName");
     let lastName = document.getElementById('lastName');
 
-    function checkInput(input) {
-        input.addEventListener('blur', () => {
+    function checkInput(input, check) {
+        input.addEventListener('input', () => {
             check = regexFirstNameLastName.test(input.value);
-            console.log(check)
             if (check) {
                 input.setAttribute("class", "valide");
+                console.log(input, check);
             } else {
                 input.setAttribute("class", "error")
+                console.log(input, check);
             }
         })
     }
 
-    checkInput(firstName);
-    checkInput(lastName);
+    checkInput(firstName, checkfirstName);
+    checkInput(lastName, checkLastName);
+
+
+
+    // if (checkInput(firstName) && checkInput(firstName)) {
+    //     console.log("RAS")
+    // }
+
+    // checkInput(firstName, checkfirstName);
+    // checkInput(lastName, checkLastName);
 
     
 

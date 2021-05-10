@@ -405,12 +405,21 @@ main .panier #commande {
           box-shadow: 0 0 5px #1D0D1A;
 }
 
+main .panier #commande label input {
+  outline: none;
+  border: 1px solid white;
+}
+
+main .panier #commande label input:focus {
+  border: 1px solid blue;
+}
+
 main .panier #commande label .valide {
-  border: 2px solid green;
+  border: 1px solid green;
 }
 
 main .panier #commande label .error {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 main .panier #commande #first-last-name {
