@@ -1,5 +1,6 @@
 import {
-    link
+    link,
+    linkPOST
 } from './modules/hostLink.js';
 
 import {
@@ -37,7 +38,6 @@ import {
 //      products: ["5be1ef211c9d44000030b062", "5be9bc241c9d440000a730e7", "5be1ef211c9d44000030b062"]
 // }
     
-let lingPOST = `http://localhost:3000/api/cameras/order`;
 
 showQuantityOfProducts(quantityProduct());
 
@@ -113,83 +113,134 @@ sendRequest("GET", link)
     }
     
 })
-.then(() => {
-    // validation donné
-    var checkfirstName = false;
-    var checkLastName = false;
 
-    let submit = document.getElementById("submit");
+// validation donné
+let check = {
+    "firstName": false,
+    "lastName": false,
+    "street": false,
+    "codePostal": false,
+    "ville": false,
+    "courriel": false,
+}
 
-    let regexFirstNameLastName = /^([A-Za-z][A-Za-z'-]+)?$/;
+let commande = {
+    contact: {
+        firstName: "",
+        lastName: "",
+        address: "",
+        // {
+        //     street : ,
+        //     zipCode : "13400",
+        //     city: "Aubagne"
+        // },
+        city: "",
+        email: "",
+    },
+    products: ["5be1ed3f1c9d44000030b061", "5be1ed3f1c9d44000030b061", "5be1ed3f1c9d44000030b061"]
+}
 
-    let firstName = document.getElementById("firstName");
-    let lastName = document.getElementById('lastName');
+// remplicage de commande massiv de products avec ID de LocalStorage
+// let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
+// commande.products = JSON.stringify(bufferLocalStorage.product_id);
 
-    function checkInput(input, check) {
-        input.addEventListener('input', () => {
-            check = regexFirstNameLastName.test(input.value);
-            if (check) {
-                input.setAttribute("class", "valide");
-                console.log(input, check);
-            } else {
-                input.setAttribute("class", "error")
-                console.log(input, check);
-            }
+let regexFirstNameLastNameVille = /^([A-Za-z][A-Za-z'-]+)?$/;
+let regexStreet = /^([A-Za-z0-9][ A-Za-z0-9.,]+)?$/;
+let regexCodePostal = /^(?:0[1-9]|[1-9]\d)\d{3}$/;
+let regexCourriel = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+let firstName = document.getElementById("firstName");
+let lastName = document.getElementById('lastName');
+let street = document.getElementById("street");
+let codePostal = document.getElementById("zipcode");
+let ville = document.getElementById("city");
+let courriel = document.getElementById("mail");
+
+function checkInput(input, regex) {
+    let checking = false;
+    if (regex.test(input.value) && input.value !== "") {
+        input.setAttribute("class", "valide");
+        checking = true;
+        console.log(input, checking);
+    } else {
+        input.setAttribute("class", "error")
+        checking = false;
+        console.log(input, checking);
+    }
+    return checking;
+}
+
+firstName.addEventListener('input', () => {
+    check.firstName = checkInput(firstName, regexFirstNameLastNameVille);
+})
+lastName.addEventListener('input', () => {
+    check.lastName = checkInput(lastName, regexFirstNameLastNameVille);
+})
+street.addEventListener('input', () => {
+    check.street = checkInput(street, regexStreet);
+})
+codePostal.addEventListener('input', () => {
+    check.codePostal = checkInput(codePostal, regexCodePostal);
+})
+ville.addEventListener('input', () => {
+    check.ville = checkInput(ville, regexFirstNameLastNameVille);
+})
+courriel.addEventListener('input', () => {
+    check.courriel = checkInput(courriel, regexCourriel);
+})
+
+let submit = document.getElementById("submit");
+submit.addEventListener('click', function(dataPromt) {
+
+    check.firstName = checkInput(firstName, regexFirstNameLastNameVille);
+    check.lastName = checkInput(lastName, regexFirstNameLastNameVille);
+    check.street = checkInput(street, regexStreet);
+    check.codePostal = checkInput(codePostal, regexCodePostal);
+    check.ville = checkInput(ville, regexFirstNameLastNameVille);
+    check.courriel = checkInput(courriel, regexCourriel);
+
+    if (check.firstName &&
+        check.lastName &&
+        check.street &&
+        check.codePostal &&
+        check.ville &&
+        check.courriel) {
+        //remplisage de la commande avec la valeur des inputs
+        commande.contact.firstName = firstName.value;
+        commande.contact.lastName = lastName.value;
+        commande.contact.address = street.value;
+        commande.contact.city = (codePostal.value + " " + ville.value);
+        commande.contact.email = courriel.value;
+
+        sendRequest('POST', linkPOST, commande)
+        
+            
+        
+
+        console.log('votre commande', commande)
+        console.log("GOOOOD!!!")
+    } else {
+        // let tagBody = document.getElementsByClassName("body");
+        // constructorHTMLCode(tagBody[0], template.notificationErr);
+        let tagBody = document.getElementsByTagName("body");
+        constructorHTMLCode(tagBody[0], template.notificationErr);
+        // incertion du message
+        document.getElementById("popUnder-body-p").innerText = "Veuillez remplir tous les champs du formulaire correctement.";
+
+        // fermeture notification
+        let refuser = document.getElementById("refuser");
+        refuser.addEventListener("click", () => {
+            document.getElementById('popUnder').remove();
         })
     }
-
-    checkInput(firstName, checkfirstName);
-    checkInput(lastName, checkLastName);
-
-
-
-    // if (checkInput(firstName) && checkInput(firstName)) {
-    //     console.log("RAS")
-    // }
-
-    // checkInput(firstName, checkfirstName);
-    // checkInput(lastName, checkLastName);
-
-    
-
-    // function validationInput(input, regex) {
-        
-    //     input.addEventListener('input', () => {
-    //         if (regex.test(input.value)) {
-    //             console.log('ras pour ' + input.id)
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     })
-    // }
-
-    // let lastName = document.getElementById('lastName');
-    // let firstName = document.getElementById("firstName");
-
-    // let validateurLastName = false;
-    // let validateurFirstName = false;
-
-    // validateurLastName = validationInput(lastName, regexFirstNameLastName);
-    // validateurFirstName = validationInput(firstName, regexFirstNameLastName);
-    
-
-
-    // submit.addEventListener('click', (validateurLastName, validateurFirstName) => {
-    //     console.log(validateurLastName); 
-    //     console.log(validateurFirstName);
-    //     if (validateurFirstName && validateurLastName) {
-    //         // submit.removeAttribute("disabled");
-    //         console.log("ras!!!")
-    //     } else {
-    //         // submit.setAttribute("disabled", "true")
-    //         console.log("PAS BON!!!!");
-    //     }
-
-    // })
-    
-
 })
+
+
+
+
+
+
+
 
         
         

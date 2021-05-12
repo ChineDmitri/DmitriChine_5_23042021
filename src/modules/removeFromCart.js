@@ -23,7 +23,6 @@ export function deleteArticle(id) {
         // suprimme id produit et lense par l'index
         bufferLocalStorage.product_id.splice(id, 1);
         bufferLocalStorage.lenses.splice(id, 1);
-
         // n'oublie pas réenvoyer a local storage
         localStorage.setItem('produitInPanier', JSON.stringify(bufferLocalStorage));
 

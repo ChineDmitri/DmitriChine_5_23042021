@@ -232,11 +232,11 @@ body {
 }
 
 #popUnder #accepter {
-  color: #F15555;
+  color: #B26E9C;
 }
 
 #popUnder #refuser {
-  color: #B26E9C;
+  color: #F15555;
 }
 
 #popUnder-body {
@@ -265,6 +265,10 @@ body {
 
 #popUnder-body-btnVerification {
   text-align: center;
+}
+
+#popUnder-body-btnClose {
+  text-align: right;
 }
 
 main {
@@ -414,12 +418,16 @@ main .panier #commande label input:focus {
   border: 1px solid blue;
 }
 
+main .panier #commande label input:placeholder-shown {
+  font-style: italic;
+}
+
 main .panier #commande label .valide {
   border: 1px solid green;
 }
 
 main .panier #commande label .error {
-  border: 1px solid red;
+  border: 1px solid #F15555;
 }
 
 main .panier #commande #first-last-name {

@@ -43,10 +43,10 @@ body {
         }
     }
     #accepter {
-        color: $negative_color;
+        color: $ico_color2;
     }
     #refuser {
-        color: $ico_color2;
+        color: $negative_color;
     }
     &-body {
         display: flex;
@@ -66,6 +66,9 @@ body {
         }
         &-btnVerification {   
             text-align: center;
+        }
+        &-btnClose {   
+            text-align: right;
         }
     } 
     
@@ -166,12 +169,15 @@ main {
                     &:focus {
                         border: 1px solid blue;
                     }
+                    &:placeholder-shown {
+                        font-style: italic;
+                    }
                 }
                 .valide {
                     border: 1px solid green;
                 }
                 .error {
-                    border: 1px solid red;
+                    border: 1px solid $negative_color;
                 }
             }
             #first-last-name {
