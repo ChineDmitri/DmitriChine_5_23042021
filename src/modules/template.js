@@ -8,7 +8,8 @@ export var template = {
     counter : '<span id="counter"></span>',
     productInCart: '<li class="product"><span class="product-name">Photo 50mm</span><button class="product-delete" id="supr" value="" ><i class="fas fa-trash-alt"></i></button></li>',
     notification: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-p"></span><span id="popUnder-body-btnVerification"><button id="accepter" value=""><i class="fas fa-check-square"></i></button><button id="refuser"><i class="fas fa-window-close"></i></button></span></div> </div>',
-    notificationErr: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-btnClose"><button id="refuser"><i class="fas fa-times-circle"></i></button></span><span id="popUnder-body-p">Veuillez choisir une option</span></div></div>'
+    notificationErr: '<div id="popUnder"><div id="popUnder-body"><span id="popUnder-body-btnClose"><button id="refuser"><i class="fas fa-times-circle"></i></button></span><span id="popUnder-body-p">Veuillez choisir une option</span></div></div>',
+    formCommande: '<div id="commande" action="order.html" method="POST"><div id="first-last-name"><label>Prénom:<input type="text" id="firstName" placeholder="Jean"></label><label>Nom: <input type="text" id="lastName" placeholder="Deschemps" data="1"></label></div><div id="adress"><label>Adresse:<input type="address" id="street" placeholder="1 Avenue de la Republique" data="2"></label></div><div id="zipcode-ville"><label>Code Postale:<input type="address" id="zipcode" placeholder="13001" data="3"></label><label>Ville:<input type="address" id="city" placeholder="Marseille" data="4"></label></div><div id="email"><label>Courriel:<input type="email" id="mail" placeholder="example@gmail.com" data="5"></label></div><button id="submit">Valide votre commande</button></div>'
 }   
 
 // OU et QOUI on insert

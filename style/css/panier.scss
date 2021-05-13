@@ -17,7 +17,7 @@ main {
     margin: 1vh 0;
     font-size: 0.9rem;
     font-weight: 500;
-    .panier {    
+    .main-panier {    
         h2 {
             margin: 0;
             padding: 0;
@@ -38,8 +38,10 @@ main {
         background-color: $objet_color;
         padding: 1%;
         border-radius: 25px;
+        .minH{
+            min-height: 40vh;
+        }
         ol {
-            min-height: 5vh;
             display: flex;
             flex-direction: column;
             counter-reset: compteur;  
