@@ -134,3 +134,72 @@
 
 
 }
+
+@mixin pop-under {
+    // style pour pop under START
+    #popUnder {
+        font-family: 'Trirong', serif;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9; 
+        animation-name: slowPopUnder;
+        animation-duration: 250ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        @keyframes slowPopUnder {
+            from {
+                background-color: none;
+            }
+            to {
+                background-color: rgba(0, 0, 0, 0.5)
+            }
+        }
+        #accepter, #refuser {
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            padding: 0;
+            border: 0;
+            &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+            &:focus + #popUnder {
+                background-color: black;
+            }
+        }
+        #accepter {
+            color: $ico_color2;
+        }
+        #refuser {
+            color: $negative_color;
+        }
+        &-body {
+            display: flex;
+            flex-direction: column;
+            padding: 1%;
+            background-color: $objet_color;
+            position: absolute;
+            top: 33%;
+            left: 30%;
+            width: 38%;
+            z-index: 10;
+            border-radius: 1rem;
+            &-p {
+                padding: 0;
+                margin: 0 0 1rem;
+                text-align: center;
+            }
+            &-btnVerification {   
+                text-align: center;
+            }
+            &-btnClose {   
+                text-align: right;
+            }
+        } 
+        
+    }
+    // style pour pop under END
+}

@@ -174,10 +174,6 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
   color: #B26E9C;
 }
 
-body {
-  position: relative;
-}
-
 #popUnder {
   font-family: 'Trirong', serif;
   position: fixed;
@@ -269,6 +265,10 @@ body {
 
 #popUnder-body-btnClose {
   text-align: right;
+}
+
+body {
+  position: relative;
 }
 
 main {

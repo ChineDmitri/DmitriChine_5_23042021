@@ -22,7 +22,12 @@ import {
 
 import {
     sendRequest
-} from './modules/sendRequest.js'
+} from './modules/sendRequest.js';
+
+import {
+    eventAccepter,
+    eventRefuser
+} from './modules/notificationEvent.js';
 
 const id = 'produit.html?id=';
 let hrefURL = location.href;
@@ -125,8 +130,15 @@ sendRequest('GET', link)
                         addToLocalStorage(bufferProduits, objetJSON, optionValue);
 
                         notification(objetJSON.name, option, optionValue);
-    
+
                         showQuantityOfProducts(quantityProduct());
+
+                        let accepter = document.getElementById("accepter");
+                        eventAccepter(accepter);
+                       
+                        // destruction PopUnder
+                        let refuser = document.getElementById("refuser");
+                        eventRefuser(refuser);
 
                     } else { // sinon il fait directement envoyer à localStorage
                         constructorHTMLCode(tagBody[0], template.notification);
@@ -136,6 +148,13 @@ sendRequest('GET', link)
                         notification(objetJSON.name, option, optionValue);
 
                         showQuantityOfProducts(quantityProduct());
+
+                        let accepter = document.getElementById("accepter");
+                        eventAccepter(accepter);
+
+                        // destruction PopUnder
+                        let refuser = document.getElementById("refuser");
+                        eventRefuser(refuser);
 
                     }
 
@@ -147,19 +166,13 @@ sendRequest('GET', link)
                     // produitNotification.innerText = ("Veillez à choisir la " + option);
                     // let produitNotificationGoPanier = document.getElementById('produit-notification-goPanier');
                     // produitNotificationGoPanier.innerHTML = '';
-
+                    // destruction PopUnder
+                    let refuser = document.getElementById("refuser");
+                    eventRefuser(refuser);
                 }
 
-                // destruction PopUnder
-                let refuser = document.getElementById("refuser");
-                refuser.addEventListener("click", () => {
-                    document.getElementById('popUnder').remove();
-                })
+                
 
-                let accepter = document.getElementById("accepter");
-                accepter.addEventListener("click", () => {
-                    window.location.href = (domaine + portFronEnd + "/panier.html")
-                })
 
                 console.log("qoui " + radios.checked);
 

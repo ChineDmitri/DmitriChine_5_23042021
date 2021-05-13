@@ -1,6 +1,7 @@
 import {
     link,
     linkPOST,
+    domaine,
     portFronEnd
 } from './modules/hostLink.js';
 
@@ -22,6 +23,9 @@ import {
     verificationDelete,
     deleteArticle
 } from './modules/removeFromCart';    
+import {    
+    eventRefuser
+} from './modules/notificationEvent.js';
 
 //combien produit dans panier
 showQuantityOfProducts(quantityProduct());
@@ -182,10 +186,11 @@ submit.addEventListener('click', () => {
         commande.contact.city = (codePostal.value + " " + ville.value);
         commande.contact.email = courriel.value;
 
-        // send request POST et recuperation in preview orderId
+        // send request POST et recuperation in preview orderId et redirect vers page confirmation
         sendRequest('POST', linkPOST, commande)
             .then((data) => {
                 console.log("Votre id de comande", data.orderId);
+                window.location.href = (domaine + portFronEnd + "/confirmation.html?id=" + data.orderId)
             })  
 
         console.log("votre commande", commande)
@@ -200,11 +205,9 @@ submit.addEventListener('click', () => {
         // incertion du message
         document.getElementById("popUnder-body-p").innerText = "Veuillez remplir tous les champs du formulaire correctement.";
 
-        // creation l'evenement de la fermeture notification
+        // delete the pop-undet
         let refuser = document.getElementById("refuser");
-        refuser.addEventListener("click", () => {
-            document.getElementById('popUnder').remove();
-        })
+        eventRefuser(refuser);
 
     }
 })
