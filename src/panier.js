@@ -190,7 +190,7 @@ courriel.addEventListener('input', () => {
 })
 
 let submit = document.getElementById("submit");
-submit.addEventListener('click', function(dataPromt) {
+submit.addEventListener('click', () => {
 
     check.firstName = checkInput(firstName, regexFirstNameLastNameVille);
     check.lastName = checkInput(lastName, regexFirstNameLastNameVille);
@@ -212,12 +212,13 @@ submit.addEventListener('click', function(dataPromt) {
         commande.contact.city = (codePostal.value + " " + ville.value);
         commande.contact.email = courriel.value;
 
+        // send request POST et recuperation in preview orderId
         sendRequest('POST', linkPOST, commande)
-        
-            
-        
+            .then((data) => {
+                console.log("Votre id de comande", = data.orderId);
+            })  
 
-        console.log('votre commande', commande)
+        console.log("votre commande", commande)
         console.log("GOOOOD!!!")
     } else {
         // let tagBody = document.getElementsByClassName("body");
@@ -235,15 +236,6 @@ submit.addEventListener('click', function(dataPromt) {
     }
 })
 
-
-
-
-
-
-
-
-        
-        
 
 
 
