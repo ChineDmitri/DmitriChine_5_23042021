@@ -1,6 +1,7 @@
 import {
     link,
-    linkPOST
+    linkPOST,
+    portFronEnd
 } from './modules/hostLink.js';
 
 import {
@@ -20,25 +21,9 @@ import {
 import {
     verificationDelete,
     deleteArticle
-} from './modules/removeFromCart';
+} from './modules/removeFromCart';    
 
-// let commande = {
-//     contact: {
-//         firstName: "Dmitri",
-//         lastName: "Chine",
-//         address: "580 Route de la Légion",
-//         // {
-//         //     street : ,
-//         //     zipCode : "13400",
-//         //     city: "Aubagne"
-//         // },
-//         city: "Aubagne",
-//         email: "mr.dima11@gmail.com",
-//     },
-//      products: ["5be1ef211c9d44000030b062", "5be9bc241c9d440000a730e7", "5be1ef211c9d44000030b062"]
-// }
-    
-
+//combien produit dans panier
 showQuantityOfProducts(quantityProduct());
 
 sendRequest("GET", link)
@@ -93,28 +78,13 @@ sendRequest("GET", link)
 
         }
         
-        document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal / 100 + " €");
+        document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal / 100 + " €");    
 
-
-       
-
-        // verif firstName
-        // let firstName = document.getElementById("firstName");
-        // firstName.addEventListener('input', () => {
-        //     if (regexFirstNameLastName.test(firstName.value)) {
-        //         submit.removeAttribute("disabled");
-        //     } else {
-        //         submit.setAttribute("disabled","true");
-        //     }
-        // })
-
-        
-        
     }
     
 })
 
-// validation donné
+// qu-es ce que on verifie
 let check = {
     "firstName": false,
     "lastName": false,
@@ -129,20 +99,15 @@ let commande = {
         firstName: "",
         lastName: "",
         address: "",
-        // {
-        //     street : ,
-        //     zipCode : "13400",
-        //     city: "Aubagne"
-        // },
         city: "",
         email: "",
     },
-    products: ["5be1ed3f1c9d44000030b061", "5be1ed3f1c9d44000030b061", "5be1ed3f1c9d44000030b061"]
+    products: []
 }
 
-// remplicage de commande massiv de products avec ID de LocalStorage
-// let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
-// commande.products = JSON.stringify(bufferLocalStorage.product_id);
+// remplicage de commande - massiv de products avec ID de LocalStorage
+let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
+commande.products = bufferLocalStorage.product_id;
 
 let regexFirstNameLastNameVille = /^([A-Za-z][A-Za-z'-]+)?$/;
 let regexStreet = /^([A-Za-z0-9][ A-Za-z0-9.,]+)?$/;
@@ -156,6 +121,7 @@ let codePostal = document.getElementById("zipcode");
 let ville = document.getElementById("city");
 let courriel = document.getElementById("mail");
 
+// finction de verification de l'input
 function checkInput(input, regex) {
     let checking = false;
     if (regex.test(input.value) && input.value !== "") {
@@ -170,6 +136,7 @@ function checkInput(input, regex) {
     return checking;
 }
 
+// validation donné de chaque inpute
 firstName.addEventListener('input', () => {
     check.firstName = checkInput(firstName, regexFirstNameLastNameVille);
 })
@@ -189,6 +156,7 @@ courriel.addEventListener('input', () => {
     check.courriel = checkInput(courriel, regexCourriel);
 })
 
+// click pour valider la commande (RAS obtenir orderId - NOGOOD - PopUnder)
 let submit = document.getElementById("submit");
 submit.addEventListener('click', () => {
 
@@ -199,12 +167,14 @@ submit.addEventListener('click', () => {
     check.ville = checkInput(ville, regexFirstNameLastNameVille);
     check.courriel = checkInput(courriel, regexCourriel);
 
+    // verification ensamble avec logique ET
     if (check.firstName &&
         check.lastName &&
         check.street &&
         check.codePostal &&
         check.ville &&
         check.courriel) {
+            
         //remplisage de la commande avec la valeur des inputs
         commande.contact.firstName = firstName.value;
         commande.contact.lastName = lastName.value;
@@ -215,37 +185,26 @@ submit.addEventListener('click', () => {
         // send request POST et recuperation in preview orderId
         sendRequest('POST', linkPOST, commande)
             .then((data) => {
-                console.log("Votre id de comande", = data.orderId);
+                console.log("Votre id de comande", data.orderId);
             })  
 
         console.log("votre commande", commande)
         console.log("GOOOOD!!!")
+
     } else {
-        // let tagBody = document.getElementsByClassName("body");
-        // constructorHTMLCode(tagBody[0], template.notificationErr);
+        
+        // creation popUnder
         let tagBody = document.getElementsByTagName("body");
         constructorHTMLCode(tagBody[0], template.notificationErr);
+
         // incertion du message
         document.getElementById("popUnder-body-p").innerText = "Veuillez remplir tous les champs du formulaire correctement.";
 
-        // fermeture notification
+        // creation l'evenement de la fermeture notification
         let refuser = document.getElementById("refuser");
         refuser.addEventListener("click", () => {
             document.getElementById('popUnder').remove();
         })
+
     }
 })
-
-
-
-
-
-
-
-
-
-// sendRequest('POST', link, commande)
-//     .then(data => {
-//         console.log(data.orderId)
-//     })
-//     .catch(err => console.log(err))
