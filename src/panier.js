@@ -38,7 +38,7 @@ sendRequest("GET", link)
         
         let ol = document.getElementsByTagName("ol");
         ol[0].classList.add("minH");
-        
+
     } else {
         // recuperation localStorage
         let dataLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
@@ -53,6 +53,7 @@ sendRequest("GET", link)
         for (let i = 0; i < quantityProduct(); i++) {
             constructorHTMLCode(panierOL[0], template.productInCart);
             let objetJSON = data.find((objet) => objet._id === dataLocalStorage.product_id[i]);
+            let produitInPanier = JSON.parse(localStorage.getItem('produitInPanier'));
 
             // regarder si c'est lenses / couler / vernil
             let option = JSON.stringify(objetJSON).slice(2, JSON.stringify(objetJSON).indexOf('":'));
@@ -62,8 +63,8 @@ sendRequest("GET", link)
             prixTotal += objetJSON.price;
 
             console.log("objet " + objetJSON.lenses);
-            productName.innerText = objetJSON.name + " " + option + " " + objetJSON.lenses + " (prix:" + objetJSON.price + " €)";
-
+            productName.innerText = objetJSON.name + " " + option + " " + produitInPanier.lenses[i] + " (prix:" + objetJSON.price + " €)";
+            console.log(objetJSON)
             document.getElementsByClassName("product-delete")[i].setAttribute("value", i);
 
             // cration pour chaque butonne addEventListener
@@ -72,7 +73,7 @@ sendRequest("GET", link)
                 let indexArticle = document.getElementsByClassName("product-delete")[i].value;
 
                 let tagBody = document.getElementsByTagName("body");
-                let messageNotification = document.getElementsByClassName("product-name")[i].textContent;
+                let messageNotification = document.getElementsByClassName("product-name")[i].textContent; //get text
 
                 constructorHTMLCode(tagBody[0], template.notification);
                 document.getElementById("popUnder-body-p").innerHTML = ("Voulez-vous <u>supprimer</u> " + messageNotification + " ?");
