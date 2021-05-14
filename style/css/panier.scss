@@ -32,7 +32,7 @@ main {
                 font-size: 1rem;
             }
             margin: 0 auto 1rem;
-            width: 80%;
+            width: 90%;
             text-align: center;
             font-size: 1.5rem;
         }
@@ -239,9 +239,10 @@ main {
                 border-radius: 10px;
                 color: $text_color;
                 font-weight: 700;
-                background: $ico_color2;
+                background: $ico_color3;
                 padding: 4px;
                 cursor: pointer;
+                transition: 200ms;
                 &:hover {
                     background: $ico_color2;
                 }

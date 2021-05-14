@@ -392,7 +392,7 @@ main .main-panier h2 {
 
 main .main-panier #sommeTotal {
   margin: 0 auto 1rem;
-  width: 80%;
+  width: 90%;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -728,9 +728,11 @@ main .main-panier #commande button {
   border-radius: 10px;
   color: #1D0D1A;
   font-weight: 700;
-  background: #B26E9C;
+  background: #8F5BFE;
   padding: 4px;
   cursor: pointer;
+  -webkit-transition: 200ms;
+  transition: 200ms;
   width: 50%;
   margin: 1rem auto;
 }

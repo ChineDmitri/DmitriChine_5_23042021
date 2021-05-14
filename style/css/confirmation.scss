@@ -21,15 +21,18 @@ main {
         h2 {
             vertical-align:text-bottom;
             height: 30vh;
-            margin: 0;
+            margin: 1rem 0 0;
             padding: 0;
             text-align: center;
         }
         #orderId {
             margin: 0 auto 1rem;
-            width: 80%;
+            width: 100%;
             text-align: center;
             font-size: 1.5rem;
+            @media screen and (max-width: 568px) {
+                font-size: 0.8rem;
+            }
         }
         box-shadow: 0 0 5px $text_color; 
         width: 98%;
