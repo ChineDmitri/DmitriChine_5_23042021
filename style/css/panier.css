@@ -128,7 +128,6 @@ header .panier:hover {
 }
 
 footer {
-  bottom: 0;
   -webkit-box-shadow: 0 0 10px #1D0D1A;
           box-shadow: 0 0 10px #1D0D1A;
   border-top-left-radius: 25px;
@@ -321,7 +320,7 @@ main .main-panier #sommeTotal {
 }
 
 main .main-panier .minH {
-  min-height: 40vh;
+  min-height: 35vh;
 }
 
 main .main-panier ol {

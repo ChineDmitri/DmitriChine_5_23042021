@@ -128,7 +128,6 @@ header .panier:hover {
 }
 
 footer {
-  bottom: 0;
   -webkit-box-shadow: 0 0 10px #1D0D1A;
           box-shadow: 0 0 10px #1D0D1A;
   border-top-left-radius: 25px;
@@ -309,7 +308,7 @@ main .main-panier {
 
 main .main-panier h2 {
   vertical-align: text-bottom;
-  height: 25vh;
+  height: 30vh;
   margin: 0;
   padding: 0;
   text-align: center;
