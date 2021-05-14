@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Warning: The type attribute is unnecessary for JavaScript resources. -->
+    <script defer src="./confirmation.bundle.js"></script>
+    <!-- <script defer src="./polyfill.bundle.js"></script> -->
+    <!-- <script defer src="./dist/confirmation.bundle.js"></script>
+    <script defer src="./dist/polyfill.bundle.js"></script> -->
+    <link rel="stylesheet" href="./style/css/confirmation.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/f758d5de88.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Trirong:ital,wght@0,200;0,300;0,400;0,700;1,200;1,400&display=swap" rel="stylesheet">
+    <title>Confirmation</title>
+</head>
+<body>
+    <!-- <div id="popUnder">
+        <div id="popUnder-body">
+            <span id="popUnder-body-p"></span>
+            <span id="popUnder-body-btnVerification">
+                <button id="accepter"><i class="fas fa-check-square"></i></button>
+                <button id="refuser"><i class="fas fa-window-close"></i></button>
+            </span>
+        </div> 
+    </div> -->
+
+    <div id="container">
+        
+        <header>
+            <div id="name">
+                <h1>
+                    <a href="./">
+                        Orinoco
+                        <br>
+                        Votre shopping online
+                    </a>
+                </h1>
+            </div>
+            <a href="./panier.html" class="panier">
+                <aside >
+                    <i class="fas fa-shopping-cart"></i>
+                    
+                </aside>
+            </a>
+        </header>
+        <main class="main-content">
+            <article class="main-panier">
+                <h2><u>Merci pour votre achat et à bientôt!</u></h2>
+                
+                <span id="orderId">
+                    Numero de votre commande:
+                    <br>
+                    92fd9fa0-b415-11eb-a39f-87ad443672f0
+                </span>
+    
+            </article>
+        </main>
+        <footer>
+            <ul class="liens-footer">
+                <li><a href="mailto:contact@orinoco.fr">Contact</a></li>
+                <li><a href="#">Obtenir de l'aide</a></li>
+            </ul>
+            <ul class="mode-de-payment">
+                <li><i class="fab fa-cc-visa"></i></li>
+                <li><i class="fab fa-cc-mastercard"></i></li>
+                <li><i class="fab fa-cc-paypal"></i></li>
+                <li><i class="fab fa-cc-amex"></i></li>
+            </ul>
+        </footer>
+
+    </div>
+    
+    <!-- <script>
+        function removePopUnder() {
+            let ref = getElementById("refuser");
+
+            ref.addEventListener("click", () => {
+                document.getElementById('popUnder').remove();
+            })
+        }
+    </script> -->
+</body>
+</html>

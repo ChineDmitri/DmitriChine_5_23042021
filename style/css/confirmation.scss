@@ -1,0 +1,48 @@
+@import "_variables.scss";
+@import "_mixin.scss";
+
+@include template;
+@include pop-under;
+
+body {
+    position: relative;
+}
+
+main {
+    font-family: 'Trirong', serif;
+    color: $text_color;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg_color;
+    margin: 1vh 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    .main-panier {    
+        h2 {
+            vertical-align:text-bottom;
+            height: 25vh;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #orderId {
+            margin: 0 auto 1rem;
+            width: 80%;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        box-shadow: 0 0 5px $text_color; 
+        width: 98%;
+        display: flex;   
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 2%;
+        background-color: $objet_color;
+        padding: 1%;
+        border-radius: 25px;
+        .minH{
+            min-height: 40vh;
+        }
+        
+    }
+}

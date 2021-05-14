@@ -6,7 +6,8 @@ module.exports = {
     polyfill: "babel-polyfill",
     index: "./src/index.js",
     produit: "./src/produit.js",
-    panier: "./src/panier.js"
+    panier: "./src/panier.js",
+    confirmation: "./src/confirmation.js"
   },
   output: {
     filename: "[name].bundle.js",
