@@ -4,7 +4,8 @@ import {
 
 import {
     constructorHTMLCode, 
-    template
+    template,
+    puissance
 } from './modules/template';
 
 import {
@@ -57,7 +58,7 @@ sendRequest('GET', link)
 
             let produitPrix = document.getElementsByClassName("produit-prix");
             //atributipn de la prix pour article
-            produitPrix[i].innerText = (value[i].price + " €");
+            produitPrix[i].innerText = (value[i].price * puissance + " €");
 
             // attribution de url de l'image pour article
             let produitImg = document.getElementsByClassName("imgUrl");

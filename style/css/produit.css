@@ -27,6 +27,12 @@ a:hover {
   width: 750px;
 }
 
+@media screen and (max-width: 769px) {
+  #container {
+    width: 95%;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,6 +48,19 @@ header {
   color: #1D0D1A;
   margin: 1vh 0 2% 0;
   background-color: #B5B5B5;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media screen and (max-width: 769px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 header #name {
@@ -56,8 +75,7 @@ header #name {
       -ms-flex-pack: center;
           justify-content: center;
   height: 150px;
-  -ms-flex-preferred-size: 65%;
-      flex-basis: 65%;
+  width: 65%;
   border-radius: 25px;
   background-color: #F3E9F1;
   color: #271724;
@@ -70,13 +88,21 @@ header #name h1 {
   font-size: 2rem;
 }
 
+@media screen and (max-width: 769px) {
+  header #name {
+    width: 100%;
+  }
+}
+
 header .panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   color: #271724;
   height: 150px;
   margin: 1vh 0;
   position: relative;
-  -ms-flex-preferred-size: 32%;
-      flex-basis: 32%;
+  width: 32%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border-radius: 25px;
@@ -85,6 +111,12 @@ header .panier {
           box-shadow: 0 0 5px #1D0D1A;
   -webkit-transition-duration: 400ms;
           transition-duration: 400ms;
+}
+
+@media screen and (max-width: 769px) {
+  header .panier {
+    width: 100%;
+  }
 }
 
 header .panier i {
@@ -142,16 +174,35 @@ footer .mode-de-payment li {
   font-size: 3rem;
 }
 
+footer .liens-footer {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media screen and (max-width: 769px) {
+  footer .liens-footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+footer .mode-de-payment {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 footer .liens-footer, footer .mode-de-payment {
   padding: 0;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -159,10 +210,17 @@ footer .liens-footer, footer .mode-de-payment {
 }
 
 footer .liens-footer li, footer .mode-de-payment li {
+  text-align: center;
   font-weight: 800;
   margin: 0 1rem;
   padding: 0;
   list-style-type: none;
+}
+
+@media screen and (max-width: 769px) {
+  footer .liens-footer li, footer .mode-de-payment li {
+    margin: 0 0.5rem;
+  }
 }
 
 footer .liens-footer li a, footer .mode-de-payment li a {
