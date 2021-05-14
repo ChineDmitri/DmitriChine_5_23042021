@@ -488,7 +488,7 @@ main .ligne .articles #produit-form #produit-form-post {
   background: #B26E9C;
   padding: 4px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 5px;
   background: #8F5BFE;
   -webkit-transition: 200ms;
   transition: 200ms;
@@ -496,11 +496,6 @@ main .ligne .articles #produit-form #produit-form-post {
 
 main .ligne .articles #produit-form #produit-form-post:hover {
   background: #B26E9C;
-}
-
-main .ligne .articles #produit-form #produit-form-post i {
-  -webkit-transform: scale(2);
-          transform: scale(2);
 }
 
 main .ligne .articles #produit-notification {

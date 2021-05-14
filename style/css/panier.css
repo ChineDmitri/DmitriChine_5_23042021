@@ -378,9 +378,16 @@ main .main-panier {
 }
 
 main .main-panier h2 {
+  font-size: 1.5rem;
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  main .main-panier h2 {
+    font-size: 1rem;
+  }
 }
 
 main .main-panier #sommeTotal {
@@ -388,6 +395,12 @@ main .main-panier #sommeTotal {
   width: 80%;
   text-align: center;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 568px) {
+  main .main-panier #sommeTotal {
+    font-size: 1rem;
+  }
 }
 
 main .main-panier .minH {
@@ -407,6 +420,12 @@ main .main-panier ol {
   padding: 0;
 }
 
+@media screen and (max-width: 425px) {
+  main .main-panier ol {
+    margin: 0 0.5rem 0 1rem;
+  }
+}
+
 main .main-panier .product {
   position: relative;
   list-style: none;
@@ -424,6 +443,12 @@ main .main-panier .product {
   border-radius: 1rem;
   -webkit-box-shadow: 0 0 5px #1D0D1A;
           box-shadow: 0 0 5px #1D0D1A;
+}
+
+@media screen and (max-width: 568px) {
+  main .main-panier .product {
+    min-height: 3rem;
+  }
 }
 
 main .main-panier .product:before {
@@ -446,12 +471,32 @@ main .main-panier .product:before {
   border-radius: 50%;
 }
 
+@media screen and (max-width: 568px) {
+  main .main-panier .product:before {
+    left: -1rem;
+  }
+}
+
 main .main-panier .product-name {
   margin-left: 0.5rem;
-  width: calc(90% - 0.5rem);
+  width: calc(90% - 1rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 568px) {
+  main .main-panier .product-name {
+    width: calc(85% - 1rem);
+    white-space: initial;
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  main .main-panier .product-name {
+    width: calc(80% - 1rem);
+  }
 }
 
 main .main-panier .product-delete {
@@ -482,13 +527,21 @@ main .main-panier #commande {
           box-shadow: 0 0 5px #1D0D1A;
 }
 
+@media screen and (max-width: 425px) {
+  main .main-panier #commande {
+    margin: 0 1rem 2rem;
+    padding: 1rem 1rem;
+  }
+}
+
 main .main-panier #commande label input {
+  height: 1.5rem;
   outline: none;
   border: 1px solid white;
 }
 
 main .main-panier #commande label input:focus {
-  border: 1px solid blue;
+  border: 1px solid #8F5BFE;
 }
 
 main .main-panier #commande label input:placeholder-shown {
@@ -527,12 +580,27 @@ main .main-panier #commande #first-last-name label {
   width: 50%;
 }
 
-main .main-panier #commande #first-last-name #firstName {
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #first-last-name label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #first-last-name {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main .main-panier #commande #first-last-name #firstName, main .main-panier #commande #first-last-name #lastName {
   width: 90%;
 }
 
-main .main-panier #commande #first-last-name #lastName {
-  width: 90%;
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #first-last-name #firstName, main .main-panier #commande #first-last-name #lastName {
+    width: 98%;
+  }
 }
 
 main .main-panier #commande #adress {
@@ -563,6 +631,12 @@ main .main-panier #commande #adress #street {
   width: 95%;
 }
 
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #adress #street {
+    width: 98%;
+  }
+}
+
 main .main-panier #commande #zipcode-ville {
   width: 100%;
   display: -webkit-box;
@@ -586,12 +660,27 @@ main .main-panier #commande #zipcode-ville label {
   width: 50%;
 }
 
-main .main-panier #commande #zipcode-ville #zipcode {
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #zipcode-ville label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #zipcode-ville {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main .main-panier #commande #zipcode-ville #zipcode, main .main-panier #commande #zipcode-ville #city {
   width: 90%;
 }
 
-main .main-panier #commande #zipcode-ville #city {
-  width: 90%;
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #zipcode-ville #zipcode, main .main-panier #commande #zipcode-ville #city {
+    width: 98%;
+  }
 }
 
 main .main-panier #commande #email {
@@ -617,12 +706,49 @@ main .main-panier #commande #email label {
   width: 50%;
 }
 
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #email label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #email {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 main .main-panier #commande #email #mail {
   width: 90%;
 }
 
+@media screen and (max-width: 425px) {
+  main .main-panier #commande #email #mail {
+    width: 98%;
+  }
+}
+
 main .main-panier #commande button {
+  font-family: 'Trirong', serif;
+  border: 0;
+  border-radius: 10px;
+  color: #1D0D1A;
+  font-weight: 700;
+  background: #B26E9C;
+  padding: 4px;
+  cursor: pointer;
   width: 50%;
   margin: 1rem auto;
+}
+
+main .main-panier #commande button:hover {
+  background: #B26E9C;
+}
+
+@media screen and (max-width: 425px) {
+  main .main-panier #commande button {
+    width: 80%;
+  }
 }
 /*# sourceMappingURL=panier.css.map */

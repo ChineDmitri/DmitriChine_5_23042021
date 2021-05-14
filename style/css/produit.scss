@@ -108,15 +108,12 @@ main {
                         background: $ico_color2;
                         padding: 4px;
                         width: 60%;
-                        margin: 0 auto;
+                        margin: 0 auto 5px;
                         // background: linear-gradient(180deg, $ico_color1 30%, $ico_color2 70%, $ico_color3);
                         background: $ico_color3;
                         transition: 200ms;
                         &:hover {
                             background: $ico_color2;
-                        }
-                        i {
-                            transform: scale(2);
                         }
                     }
                 }    
