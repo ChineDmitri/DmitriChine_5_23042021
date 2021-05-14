@@ -16,7 +16,8 @@ import {
 
 import {
     constructorHTMLCode,
-    template
+    template,
+    puissance
 } from './modules/template.js';
 
 import {
@@ -63,7 +64,7 @@ sendRequest("GET", link)
             prixTotal += objetJSON.price;
 
             console.log("objet " + objetJSON.lenses);
-            productName.innerText = objetJSON.name + " " + option + " " + produitInPanier.lenses[i] + " (prix:" + objetJSON.price + " €)";
+            productName.innerText = objetJSON.name + " " + option + " " + produitInPanier.lenses[i] + " (prix:" + objetJSON.price * puissance + " €)";
             console.log(objetJSON)
             document.getElementsByClassName("product-delete")[i].setAttribute("value", i);
 
@@ -87,7 +88,7 @@ sendRequest("GET", link)
 
         }
         
-        document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal / 100 + " €");    
+        document.getElementById("sommeTotal").innerText = ("Prix total de la commande: " + prixTotal * puissance + " €");    
         let panier = document.getElementsByClassName("main-panier")
         constructorHTMLCode(panier[0], template.formCommande);
         

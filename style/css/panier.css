@@ -487,15 +487,7 @@ main .main-panier .product-name {
 
 @media screen and (max-width: 568px) {
   main .main-panier .product-name {
-    width: calc(85% - 1rem);
     white-space: initial;
-    overflow: visible;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  main .main-panier .product-name {
-    width: calc(80% - 1rem);
   }
 }
 
@@ -504,6 +496,7 @@ main .main-panier .product-delete {
   border: none;
   padding: 0;
   font-size: 1rem;
+  margin: 0 1rem;
 }
 
 main .main-panier .product-delete:hover {
