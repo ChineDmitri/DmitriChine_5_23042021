@@ -159,6 +159,11 @@ header .panier:hover {
           box-shadow: -1px -1px 5px 0 #E68A08, 0px 0px 10px 0 #B26E9C, 1px 1px 5px 0 #8F5BFE;
 }
 
+.bottomFooter {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
 footer {
   -webkit-box-shadow: 0 0 10px #1D0D1A;
           box-shadow: 0 0 10px #1D0D1A;
@@ -181,7 +186,7 @@ footer .liens-footer {
           flex-direction: row;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 700px) {
   footer .liens-footer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -217,7 +222,7 @@ footer .liens-footer li, footer .mode-de-payment li {
   list-style-type: none;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 700px) {
   footer .liens-footer li, footer .mode-de-payment li {
     margin: 0 0.5rem;
   }
@@ -308,6 +313,14 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
   width: 38%;
   z-index: 10;
   border-radius: 1rem;
+}
+
+@media screen and (max-width: 769px) {
+  #popUnder-body {
+    padding: 3%;
+    left: 7%;
+    width: 80%;
+  }
 }
 
 #popUnder-body-p {

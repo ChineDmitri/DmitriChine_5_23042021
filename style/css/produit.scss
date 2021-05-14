@@ -22,7 +22,7 @@ main {
         margin-bottom: 2%;
         background-color: $objet_color;
         padding: 1%;
-        border-radius: 25px;
+        border-radius: 15px;
         .articles {
             display: flex;
             flex-direction: column;
@@ -31,8 +31,8 @@ main {
                 max-height: 350px;
                 object-fit:cover;
                 object-position: center;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
                 // &:hover {
                 //     animation-name: showPhoto;
                 //     animation-duration: 8s;
@@ -54,7 +54,7 @@ main {
             }
             #produit {
                 &-general {
-                    padding: 3%;
+                    padding: 2%;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -73,18 +73,51 @@ main {
                     font-size: 1.2rem;
                 }
                 &-description {
+                    padding: 1%;
+                    border-radius: 10px;
+                    box-shadow: 0 0 5px $text_color; 
                     display: flex;
                     flex-direction: column;
                     flex-basis: 55%;
                     margin: 0;
-                    padding: 0;
+                    @media screen and (max-width: 700px) {
+                        flex-basis: 100%;
+                        margin-bottom: 2vh;
+                    }
                 }
                 &-form {
+                    padding: 1%;
+                    border-radius: 10px;
+                    box-shadow: 0 0 5px $text_color; 
                     display: flex;
                     flex-basis: 35%;
                     flex-direction: column;
+                    @media screen and (max-width: 700px) {
+                        flex-basis: 100%;
+                    }
                     .labelRadio {
                         
+                    }
+                    #produit-form-post {
+                        font-family: 'Trirong', serif;
+                        cursor: pointer;
+                        border: 0;
+                        border-radius: 10px;
+                        color: $text_color;
+                        font-weight: 700;
+                        background: $ico_color2;
+                        padding: 4px;
+                        width: 60%;
+                        margin: 0 auto;
+                        // background: linear-gradient(180deg, $ico_color1 30%, $ico_color2 70%, $ico_color3);
+                        background: $ico_color3;
+                        transition: 200ms;
+                        &:hover {
+                            background: $ico_color2;
+                        }
+                        i {
+                            transform: scale(2);
+                        }
                     }
                 }    
                 &-notification {

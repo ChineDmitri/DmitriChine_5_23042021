@@ -6,7 +6,8 @@ import {
 
 import {
     constructorHTMLCode,
-    template
+    template,
+    puissance
 } from './modules/template.js';
 
 import {
@@ -73,7 +74,7 @@ sendRequest('GET', link)
             let imgUrl = document.getElementById("imgUrl");
 
             // incertion de donné
-            produitPrix.innerText = (objetJSON.price + " €");
+            produitPrix.innerText = (objetJSON.price * puissance + " €");
             produitDescription.innerText = objetJSON.description;
             produitNom.innerText = objetJSON.name;
             titleOption.innerText = (optionFirstCharUpperCase + ":");
@@ -189,6 +190,10 @@ sendRequest('GET', link)
       console.log(err)  
     }) 
     
-
+// fait border radius si l'écran trés grand
+if (document.documentElement.clientHeight > 1000) {
+    let footer = document.getElementsByTagName("footer");
+    footer[0].setAttribute("class", "bottomFooter")
+}
 
 
