@@ -7,7 +7,8 @@ import {
 export function eventAccepter(element) {
     element.addEventListener("click", () => {
         console.log("chiao")
-        window.location.href = (domaine + portFronEnd + "/panier.html");
+        console.log(document.domain + "/panier.html")
+        window.location.href = ("http://" +document.domain + "/panier.html");
     })
 }
 

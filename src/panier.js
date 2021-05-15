@@ -199,7 +199,7 @@ sendRequest("GET", link)
                 sendRequest('POST', linkPOST, commande)
                     .then((data) => {
                         console.log("Votre id de comande", data.orderId);
-                        window.location.href = (domaine + portFronEnd + "/confirmation.html?id=" + data.orderId);
+                        window.location.href = ("http://" + document.domain + "/confirmation.html?id=" + data.orderId);
                         localStorage.removeItem("produitInPanier");
                     })
 

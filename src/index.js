@@ -17,20 +17,6 @@ import {
     sendRequest
 } from './modules/sendRequest.js';
 
-// let cameras = new XMLHttpRequest();
-
-// cameras.open('GET', link);
-// cameras.send();
-
-// // creation promise et resolve ARRAY avec les cameras
-// let promiseCameras = new Promise((resolve, reject) => {
-//     cameras.onload = () => {
-//         let arrayCameras = JSON.parse(cameras.response);
-//         console.log(arrayCameras);
-//         resolve(arrayCameras)
-//     }
-// });
-
 sendRequest('GET', link)
     .then((value) => {
         let classMaintContent = document.getElementsByClassName('main-content');
@@ -76,9 +62,6 @@ sendRequest('GET', link)
         showQuantityOfProducts(quantityProduct());
 
 
-    })
-    .catch((err) => {
-        console.log(err)
     })
     
 
