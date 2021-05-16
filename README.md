@@ -18,6 +18,7 @@ Clonez ce dépôt. Depuis le dossier du projet, exécutez `npm install`. Après,
 Si le serveur fonctionne sur un autre port pour quelque raison que ce soit, c'est indiqué dans la console au démarrage du serveur, par ex. `Listening on port 3001`.
 
 Le **back-end** doit fonctionner sur `localhost` avec le port par défaut `3000`. 
+
 Le **front-end** doit fonctionner sur `localhost` avec le port par défaut `8080`, (utiliser webpack DevServer)
 
 ---
@@ -25,7 +26,9 @@ Le **front-end** doit fonctionner sur `localhost` avec le port par défaut `8080
 ### Fonctionnalité et hébergement ###
 
 Reglage des port pour application dans `hostLink.js`
+
 PORT pour front-end: `"8080"`
+
 PORT pour back-end: `"3000"`
 
 Si vous allez héberger le site - dans `hostLink.js`, il faut mettre pour les ports `""`
