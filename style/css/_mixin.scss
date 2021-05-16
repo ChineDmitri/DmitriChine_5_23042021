@@ -24,6 +24,9 @@
         width: 750px;
         @media screen and (max-width: 769px) {
             width: 95%;
+        }      
+        @media screen and (min-width: 1920px) {
+            width: 1366px;
         }            
     }
 
@@ -182,7 +185,7 @@
         animation-fill-mode: both;
         @keyframes slowPopUnder {
             from {
-                background-color: none;
+                background-color: rgba(255, 255, 255, 0);
             }
             to {
                 background-color: rgba(0, 0, 0, 0.5)

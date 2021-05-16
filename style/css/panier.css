@@ -33,6 +33,12 @@ a:hover {
   }
 }
 
+@media screen and (min-width: 1920px) {
+  #container {
+    width: 1366px;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -256,7 +262,7 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
 
 @-webkit-keyframes slowPopUnder {
   from {
-    background-color: none;
+    background-color: rgba(255, 255, 255, 0);
   }
   to {
     background-color: rgba(0, 0, 0, 0.5);
@@ -265,7 +271,7 @@ footer .liens-footer li a:hover, footer .mode-de-payment li a:hover {
 
 @keyframes slowPopUnder {
   from {
-    background-color: none;
+    background-color: rgba(255, 255, 255, 0);
   }
   to {
     background-color: rgba(0, 0, 0, 0.5);

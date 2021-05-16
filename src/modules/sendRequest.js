@@ -1,4 +1,4 @@
-//function pour GET POST 
+//function pour GET POST (body = null si methot get)
 export function sendRequest(method, url, body = null) {
     return new Promise( (resolve, reject) => {
 
@@ -11,10 +11,10 @@ export function sendRequest(method, url, body = null) {
 
 
         request.onload = () => {
-            if (request.status >= 400) {
+            if (request.status >= 400) { // Status Code si > 400 reject
                 reject(request.response)
             } else {
-                let array = JSON.parse(request.response);
+                let array = JSON.parse(request.response); // parse le response en JSON
                 resolve(array)
             } 
         }
@@ -23,7 +23,7 @@ export function sendRequest(method, url, body = null) {
             reject(request.response);
         }
 
-        request.send(JSON.stringify(body));
+        request.send(JSON.stringify(body)); // envoyer body transforme en STRING
     })
         
 };

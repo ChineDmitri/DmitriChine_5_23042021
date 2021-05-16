@@ -1,15 +1,32 @@
 # Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+Projet n5 de la formation Web Développeur chez [OpenClassRooms.com](https://openclassrooms.com/ "OpenClassRooms")
+
+Projet hebergé pour fast-test: [orinoco.42web.io](http://orinoco.42web.io/ "Fast-test orinoco.42web.io")
+
+---
 
 ### Prerequisites ###
 
-You will need to have Node and `npm` installed locally on your machine.
+Vous devrez avoir le [Node.js](https://nodejs.org/ "Site officiel Node.js")  et `npm` installés sur votre ordinateur.
+
+---
 
 ### Installation ###
 
-Clone this repo. From within the project folder, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+Clonez ce dépôt. Depuis le dossier du projet, exécutez `npm install`. Après, vous pouvez démarrer le **serveur (back-end)** avec `node server`.
+Si le serveur fonctionne sur un autre port pour quelque raison que ce soit, c'est indiqué dans la console au démarrage du serveur, par ex. `Listening on port 3001`.
+
+Le **back-end** doit fonctionner sur `localhost` avec le port par défaut `3000`. 
+Le **front-end** doit fonctionner sur `localhost` avec le port par défaut `8080`, (utiliser webpack DevServer)
+
+---
+
+### Fonctionnalité et hébergement ###
+
+Reglage des port pour application dans `hostLink.js`
+PORT pour front-end: `"8080"`
+PORT pour back-end: `"3000"`
+
+Si vous allez héberger le site - dans `hostLink.js`, il faut mettre pour les ports `""`
+

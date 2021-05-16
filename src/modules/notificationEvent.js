@@ -3,8 +3,8 @@ import {
     portFronEnd
 } from './hostLink.js'
 
-// function de l'evenement => REDIRECTION 
-export function eventAccepter(element) {
+// function de l'evenement => REDIRECTION ver direcion
+export function eventAccepter(element, direction) {
     element.addEventListener("click", () => {
         console.log("chiao")
         console.log(document.domain + "/panier.html")

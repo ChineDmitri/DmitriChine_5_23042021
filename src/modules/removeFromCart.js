@@ -11,9 +11,6 @@ export function verificationDelete() {
 export function deleteArticle(id) {
     let accepter = document.getElementById("accepter");
     accepter.addEventListener("click", () => {
-        // document.getElementsByClassName("product")[id].remove();
-        // document.getElementById('popUnder').remove();
-
         let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier')); 
         console.log(bufferLocalStorage);
 
@@ -21,6 +18,7 @@ export function deleteArticle(id) {
         bufferLocalStorage.product_id.splice(id, 1);
         bufferLocalStorage.lenses.splice(id, 1);
         bufferLocalStorage.prix.splice(id, 1);
+        
         // n'oublie pas réenvoyer a local storage
         localStorage.setItem('produitInPanier', JSON.stringify(bufferLocalStorage));
 
