@@ -33,6 +33,12 @@ a:hover {
   }
 }
 
+@media screen and (min-width: 1920px) {
+  #container {
+    width: 1366px;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -392,6 +398,12 @@ main .ligne .articles img {
      object-position: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+@media screen and (min-width: 1920px) {
+  main .ligne .articles img {
+    max-height: 650px;
+  }
 }
 
 main .ligne .articles #produit-general {

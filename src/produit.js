@@ -135,7 +135,7 @@ sendRequest('GET', link)
                         showQuantityOfProducts(quantityProduct());
 
                         let accepter = document.getElementById("accepter");
-                        eventAccepter(accepter);
+                        eventAccepter(accepter, "/panier.html");
                        
                         // destruction PopUnder
                         let refuser = document.getElementById("refuser");
@@ -151,7 +151,7 @@ sendRequest('GET', link)
                         showQuantityOfProducts(quantityProduct());
 
                         let accepter = document.getElementById("accepter");
-                        eventAccepter(accepter);
+                        eventAccepter(accepter, "/panier.html");
 
                         // destruction PopUnder
                         let refuser = document.getElementById("refuser");

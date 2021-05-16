@@ -122,6 +122,7 @@ sendRequest("GET", link)
         let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
         commande.products = bufferLocalStorage.product_id;
 
+        // RegEx pour validation des inputs
         let regexFirstNameLastNameVille = /^([A-Za-z][A-Za-z'-]+)?$/;
         let regexStreet = /^([A-Za-z0-9][ A-Za-z0-9.,]+)?$/;
         let regexCodePostal = /^(?:0[1-9]|[1-9]\d)\d{3}$/;
@@ -215,7 +216,7 @@ sendRequest("GET", link)
                 // incertion du message
                 document.getElementById("popUnder-body-p").innerText = "Veuillez remplir tous les champs du formulaire correctement.";
 
-                // delete the pop-undet
+                // delete the pop-under
                 let refuser = document.getElementById("refuser");
                 eventRefuser(refuser);
 

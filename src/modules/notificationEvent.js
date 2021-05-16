@@ -3,11 +3,11 @@ import {
     portFronEnd
 } from './hostLink.js'
 
-// function de l'evenement => REDIRECTION 
-export function eventAccepter(element) {
+// function de l'evenement => REDIRECTION ver direcion
+export function eventAccepter(element, direction) {
     element.addEventListener("click", () => {
         console.log("chiao")
-        window.location.href = (domaine + portFronEnd + "/panier.html");
+        window.location.href = (domaine + portFronEnd + direction);
     })
 }
 

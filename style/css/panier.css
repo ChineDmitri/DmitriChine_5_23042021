@@ -33,6 +33,12 @@ a:hover {
   }
 }
 
+@media screen and (min-width: 1920px) {
+  #container {
+    width: 1366px;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
