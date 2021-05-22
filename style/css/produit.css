@@ -483,6 +483,33 @@ main .ligne .articles #produit-form {
           flex-direction: column;
 }
 
+main .ligne .articles #produit-form .valide {
+  border: 1px solid green;
+}
+
+main .ligne .articles #produit-form .error {
+  border: 1px solid #F15555;
+}
+
+main .ligne .articles #produit-form select {
+  outline: none;
+  color: #1D0D1A;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+main .ligne .articles #produit-form select option {
+  color: #1D0D1A;
+  padding: 1rem, 0;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+main .ligne .articles #produit-form select option:checked {
+  background-color: #B26E9C;
+}
+
 @media screen and (max-width: 700px) {
   main .ligne .articles #produit-form {
     -ms-flex-preferred-size: 100%;

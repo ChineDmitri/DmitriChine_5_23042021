@@ -199,6 +199,17 @@ sendRequest("GET", link)
                 // send request POST et recuperation in preview orderId et redirect vers page confirmation
                 sendRequest('POST', linkPOST, commande)
                     .then((data) => {
+                        // recuperation de localstorage 
+                        let bufferLocalStorage = JSON.parse(localStorage.getItem('produitInPanier'));
+
+                        // prix total
+                        let prixTotal = 0
+                        for (let i = 0; i < quantityProduct(); i++) {
+                            let prixTypeOfNumber = Number(bufferLocalStorage.prix[i])
+                            prixTotal += prixTypeOfNumber;
+                        }
+                        prixTotal *= puissance;
+
                         console.log("Votre id de comande", data.orderId);
                         window.location.href = ("http://" + document.domain + "/confirmation.html?id=" + data.orderId);
                         localStorage.removeItem("produitInPanier");
