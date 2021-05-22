@@ -209,10 +209,10 @@ sendRequest("GET", link)
                             prixTotal += prixTypeOfNumber;
                         }
                         prixTotal *= puissance;
-                        
+
                         console.log("Votre id de comande", data.orderId);
                         window.location.href = (domaine + portFronEnd + "/confirmation.html?id=" + data.orderId + "&prix=" + prixTotal);
-                        // localStorage.removeItem("produitInPanier");
+                        localStorage.removeItem("produitInPanier");
                     })
 
                 console.log("votre commande", commande)
