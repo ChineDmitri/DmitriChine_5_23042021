@@ -211,7 +211,7 @@ sendRequest("GET", link)
                         prixTotal *= puissance;
 
                         console.log("Votre id de comande", data.orderId);
-                        window.location.href = ("http://" + document.domain + "/confirmation.html?id=" + data.orderId);
+                        window.location.href = ("http://" + document.domain + "/confirmation.html?id=" + data.orderId + "&prix=" + prixTotal);
                         localStorage.removeItem("produitInPanier");
                     })
 
