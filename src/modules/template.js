@@ -5,9 +5,10 @@ export let template = {
     // template pour l'article dans **'index.html**
     classArticle : '<a class="articleUrl" href="#"><article class="articles"><div class="produit-img"><img src="" class="imgUrl" alt=""></div><div class="produit-nomPrixAvis"><h2 class="produit-nom"></h2><span class="produit-prix">49900 €</span><span class="produit-stars"><i class="fas fa-star good"></i><i class="fas fa-star good"></i><i class="fas fa-star good"></i><i class="fas fa-star good"></i><i class="fas fa-star noGood"></i></span></div></article></a>',
     // template pour l'article dans **produit.html**
-    idArticle : '<article class="articles"><div id="produit-img"><img id="imgUrl" src="./images/vcam_1.jpg" alt=""></div><div id="produit-general"><h2 id="produit-nom"></h2><span id="produit-prix"></span><p id="produit-description">Lorem ipsum</p><form action="POST" id="produit-form"><span id="option"></span></form></div></article>',
+    idArticle : '<article class="articles"><div id="produit-img"><img id="imgUrl" src="./images/vcam_1.jpg" alt=""></div><div id="produit-general"><h2 id="produit-nom"></h2><span id="produit-prix"></span><p id="produit-description">Lorem ipsum</p><form action="POST" id="produit-form"><span id="option"></span><select><option>Choisissez une option</option></select></form></div></article>',
     // template pour delisting (radio) des options pour l'article dans **produit.html**
-    classeLabelRadio : '<label class="labelRadio"><input type="radio" name="" class="produit-form-radio" value=""></label>',
+    // classeLabelRadio : '<label class="labelRadio"><input type="radio" name="" class="produit-form-radio" value=""></label>',
+    tagOption : ' <option value="qqc">Quelque chose Quelque chose Quelque chose</option>',
     // template pour input Ajouter au Panier dans **produit.html**
     buttonAjouterAuPanier : '<input type="button" id="produit-form-post" value="Ajouter au Panier">',
     // template pour counter dans l'assid de panier sur toute le pages
