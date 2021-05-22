@@ -82,16 +82,25 @@ sendRequest('GET', link)
 
             // console.log(objetJSON.lenses.length);
 
+            // travail pour tag select (option)
+            let selectList = document.getElementsByTagName("select"); 
+            
+
+
             // cration lest des option pour article
             for (let i = 0; i < objetJSON.lenses.length; i++) {
-                constructorHTMLCode(produitForm, template.classeLabelRadio)
+                // constructorHTMLCode(produitForm, template.classeLabelRadio)
+                constructorHTMLCode(selectList[0], template.tagOption)
 
-                let lebelRadio = document.getElementsByClassName("labelRadio");
-                let inputProduitFormRadio = document.getElementsByClassName("produit-form-radio");
+                // let lebelRadio = document.getElementsByClassName("labelRadio");
+                // let inputProduitFormRadio = document.getElementsByClassName("produit-form-radio");
+                let tagOption = document.getElementsByTagName("option");
                 
-                constructorHTMLCode(lebelRadio[i], objetJSON.lenses[i]);
-                inputProduitFormRadio[i].setAttribute("name", option);
-                inputProduitFormRadio[i].setAttribute("value", objetJSON.lenses[i]);
+                // constructorHTMLCode(lebelRadio[i], objetJSON.lenses[i]);
+                // inputProduitFormRadio[i].setAttribute("name", option);
+                // inputProduitFormRadio[i].setAttribute("value", objetJSON.lenses[i]);
+                tagOption[i+1].setAttribute("value", objetJSON.lenses[i]);
+                tagOption[i+1].innerText = objetJSON.lenses[i];
             }
 
             // n'oublie pas ajouter button ;)
@@ -99,7 +108,17 @@ sendRequest('GET', link)
 
             let ajouterAuPanier = document.getElementById("produit-form-post");
 
-            
+            // ajouté border validation de choix
+            let tagSelect = document.getElementsByTagName("select");
+            tagSelect[0].addEventListener('click', () => {
+                let tagOption = document.getElementsByTagName("option");
+                if (tagOption[0].selected === false) {
+                    tagSelect[0].setAttribute("class", "valide");
+                } else {
+                    tagSelect[0].setAttribute("class", "error");
+                }
+                console.log("hello")
+            })            
 
             //ajoute en localStorage
             ajouterAuPanier.addEventListener('click', () => {
@@ -107,18 +126,21 @@ sendRequest('GET', link)
                 // let produitForm = document.getElementById('produit-form'); 
                 // constructorHTMLCode(tagBody[0], template.notificationErr);
 
-                let radios = document.getElementsByClassName("produit-form-radio");
+                // let radios = document.getElementsByClassName("produit-form-radio");
+                let tagOption = document.getElementsByTagName("option");
                 let optionValue;
-                // verification si une RADIO (lenses) etait choisis
-                for (var i = 0; i < radios.length; i++) {
-                    if (radios[i].checked) {
+                // verification si une OPTION (lenses) etait choisis
+                for (var i = 0; i < tagOption.length; i++) {
+                    if (tagOption[i].selected && tagOption[0].selected === false) {
                         // get value, set checked flag or do whatever you need to
-                        optionValue = radios[i].value;
+                        optionValue = tagOption[i].value;
                     }
-                    // n'oublie pas enlever checked
-                    radios[i].checked = false;
+                    
                 }
-                console.log("radio value ", optionValue);
+                console.log("option value ", optionValue);
+
+                // n'oublie pas enlever checked
+                tagOption[0].selected = true;
 
                 // verifier si utilisateur choisis la lense
                 if (optionValue !== undefined) {
@@ -141,6 +163,8 @@ sendRequest('GET', link)
                         let refuser = document.getElementById("refuser");
                         eventRefuser(refuser);
 
+                        tagSelect[0].removeAttribute("class");
+
                     } else { // sinon il fait directement envoyer à localStorage
                         constructorHTMLCode(tagBody[0], template.notification);
 
@@ -157,6 +181,8 @@ sendRequest('GET', link)
                         let refuser = document.getElementById("refuser");
                         eventRefuser(refuser);
 
+                        tagSelect[0].removeAttribute("class");
+                        
                     }
 
                 } else { // sinon message que il faut choisir la lense
@@ -175,7 +201,7 @@ sendRequest('GET', link)
                 
 
 
-                console.log("qoui " + radios.checked);
+                console.log("qoui " + tagOption.checked);
 
                 
             })

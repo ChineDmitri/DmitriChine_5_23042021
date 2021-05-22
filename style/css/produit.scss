@@ -89,6 +89,28 @@ main {
                     }
                 }
                 &-form {
+                    .valide {
+                        border: 1px solid green;
+                    }
+                    .error {
+                        border: 1px solid $negative_color;
+                    }
+                    select {
+                        outline: none;
+                        color: $text_color;
+                        width: 100%;
+                        margin-bottom: 1rem;
+                        option {
+                            color: $text_color;
+                            padding: 1rem, 0;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            &:checked {
+                                background-color: $ico_color2;
+                            }                           
+                        }
+                    }
                     padding: 1%;
                     border-radius: 10px;
                     box-shadow: 0 0 5px $text_color; 
